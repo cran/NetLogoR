@@ -1,0 +1,931 @@
+---
+title: "`NetLogoR` Dictionary"
+author: "Sarah Bauduin"
+date: "17 juin 2016"
+output: 
+  rmarkdown::html_vignette:
+    self_contained: yes
+    toc: yes
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Programming Guide `NetLogoR`}
+  %\VignetteKeyword{discrete event simulation, spatial simulation models}
+  %\usepackage[utf8]{inputenc}
+---
+
+This document is based on the [NetLogo Dictionary](https://ccl.northwestern.edu/netlogo/docs/dictionary.html).
+It lists all the entries in the NetLogo Dictionary (*i.e.*, NetLogo primitives) and informs the best replacements to use in R.
+Are suggested as replacements, functions from the `NetLogoR` package, as well as functions from the R software and of other packages (indicated below).
+To find how to use these functions, please refers to their documentation by using `help("nameFunction")`.
+
+When no `NetLogoR` function was built to translate a NetLogo primitive and that, to our knowledge, no R function (or from other packages) could easily recreate the primitive, we indicated "not implemented".
+The NetLogo primitives not implemented should not prevent the users from building individual-based models involving patches and turtles.
+
+For the inverse dictionary (*i.e.*, to find the NetLogo equivalents of the `NetLogoR` functions) please look at the `NetLogoR` documentation as the links to NetLogo Dictionary entries for the equivalent primitives are provided in the "See Also" section of each NetLogoR function.
+
+## NetLogo constants
+
+* e: `exp()`.
+* pi: `pi.`
+
+* false: `FALSE`.
+* true: `TRUE`.
+
+* black: `"black"`.
+* gray: `"gray"` or `"grey"`.
+* white: `"white"`.
+* red: `"red"`.
+* orange: `"orange"`.
+* brown: `"brown"`.
+* yellow: `"yellow"`.
+* green: `"green"`.
+* lime: `"limegreen"`.
+* turquoise: `"turquoise"`.
+* cyan: `"cyan"`.
+* sky: `"skyblue"`.
+* blue: `"blue"`.
+* violet: `"violet"`.
+* magenta: `"magenta"`.
+* pink: `"pink"`.
+
+See http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf for more colors.
+
+## NetLogo primitives
+
+### A
+
+* abs: `abs()`.
+
+* acos: `acos()`, returns value in radians. Use `deg()` from CircStats to convert the result in degrees.
+
+* all?: `NLall()` from NetLogoR.
+
+* and: `&`.
+
+* any?: `NLany()` from NetLogoR.
+
+* approximate-hsb: `hsv()`.
+
+* approximate-rgb: `rgb()`.
+
+* arithmetic operators: `+`, `*`, `-`, `/`, `^,` `<`, `>`, `=` or `==` (depends if it is for setting or testing), `!=`, `<=`, `>=`.
+
+* asin: `asin()`, returns value in radians. Use `deg()` from CircStats to convert the result in degrees.
+
+* ask: not implemented. The agents running a NetLogoR function is one of the function arguments that need to be provided.
+
+* ask-concurrent: not implemented. When multiple agents are provided in a NetLogoR function, they all execute the function at the same time. To execute a function similarly as ask-concurrent, the function needs to be provided with one agent at the time.
+
+* at-points: `turtlesAt()` from NetLogoR or `patchAt()` from NetLogoR.
+
+* atan: `atan2()`, returns value in radians. Use `deg()` from CircStats to convert the result in degrees.
+
+* autoplot?: not implemented.
+
+* auto-plot-off: not implemented.
+
+* auto-plot-on: not implemented.
+
+
+### B
+
+* back (bk): `bk()` from NetLogoR.
+
+* base-colors: see `help(rainbow)` for different ways of creating colors.
+
+* beep: `beep()` from beepr.
+
+* behaviorspace-experiment-name: BehaviorSpace not implemented.
+
+* behaviorspace-run-number: BehaviorSpace not implemented.
+
+* both-ends: links not implemented.
+
+* breed: use `of()` from NetLogoR to access turtles' breeds.
+
+* but-first (butfirst, bf): `nameList[-1]` for lists; `substring(nameString, 2)` for strings.
+* but-last (but-last, bl): `head(nameList, -1)` or `nameList[-length(nameList)]` for lists; `substr(nameString, 1, nchar(nameString) - 1)` for strings.
+
+
+### C
+
+* can-move?: `canMove()` in NetLogoR.
+
+* carefully: `try()`.
+
+* ceiling: `ceiling()`.
+
+* clear-all (ca): not implemented. See the NetLogoR dictionnary entries for clear-globals, clear-ticks, clear-turtles, clear-patches, clear-drawing, clear-all-plots, and clear-output.
+
+* clear-all-plots: `graphics.off()` closes all external plot windows opened and clears the plot window of RStudio.
+
+* clear-drawing (cd): not implemented.
+
+* clear-globals: `rm()` removes the specified objects (which can be of any class) from the R environment, these objects do not longer exist afterwards. To reset objects to 0 instead, reassign the objects (e.g., `nameObject <- 0`).
+
+* clear-links: links not implemented.
+
+* clear-output: `cat("\014")` clears the R console.
+
+* clear-patches (cp): `clearPatches()` from NetLogoR.
+
+* clear-plot: `dev.off()` closes the external plot window opened or clears the plot window of RStudio, depending on which one was active. `clearPlot()` from `quickPlot` acts differently on the external plot window as it clears it but does not close it.
+
+* clear-ticks: tick counter not implemented. If a global variable is used to store the time (e.g., `time <- 0`; `time <- time + 1`), see NetLogoR dictionnary entry for clear-globals.
+
+* clear-turtles (ct): see NetLogoR dictionnary entry for clear-globals. If reassigning, `turtles <- noTurtles()` can be used to kill all the turtles in the agentset and replace it by an empty turtle agenset.
+
+* color: use `of()` from NetLogoR to access turtles' colors.
+
+* cos: `cos()` takes an input value in radians. Use `rad()` from CircStats to convert the input from degrees to radians.
+
+* count: `NLcount()` from NetLogoR.
+
+* create-ordered-turtles (cro): `createOTurtles()` from NetLogoR. The created turtles must be assigned to an object before they can run some functions.
+* create-ordered\<breeds>: `createOTurtles()` from NetLogoR. The created turtles must be assigned to an object before they can run some functions.
+
+* create-\<breed>-to: links not implemented.
+* create-\<breeds>-to: links not implemented.
+* create-\<breed>-from: links not implemented.
+* create-\<breeds>-from: links not implemented.
+* create-\<breed>-with: links not implemented.
+* create-\<breeds>-with: links not implemented.
+* create-link-to: links not implemented.
+
+* create-links-to: links not implemented.
+
+* create-link-from: links not implemented.
+
+* create-links-from: links not implemented.
+
+* create-link-with: links not implemented.
+
+* create-links-with: links not implemented.
+
+* create-turtles (crt): `createTurtles()` from NetLogoR. The created turtles must be assigned to an object before they can run some functions.
+* create-\<breeds>: `createTurtles()` from NetLogoR. The created turtles must be assigned to an object before they can run some functions.
+
+* create-temporary-plot-pen: not implemented.
+
+### D
+
+* date-and-time: `Sys.time()`.
+
+* die: `die()` from NetLogoR.
+
+* diffuse: `diffuse()` from NetLogoR.
+
+* diffuse4: `diffuse()` from NetLogoR.
+
+* directed-link-breed: links not implemented.
+
+* display: not implemented.
+
+* distance: `NLdist()` from NetLogoR.
+
+* distancexy: `NLdist()` from NetLogoR.
+
+* downhill: `downhill()` from NetLogoR.
+* downhill4: `downhill()` from NetLogoR.
+
+* dx: `dx()` from NetLogoR.
+* dy: `dy()` from NetLogoR.
+
+
+### E
+
+* empty?: `length(nameList) == 0` for lists and vectors; `nchar(nameString) == 0` or `length(nameString) == 0` for strings, depending if `nameString = ""` or `nameString = character(0)`.
+
+* end: not implemented.
+
+* end1: links not implemented.
+
+* end2: links not implemented.
+
+* error: `stop("errorMessage")`.
+
+* error-message: not implemented.
+
+* every: not implemented.
+
+* exp: `exp()`.
+
+* export-view: not implemented.
+* export-interface: not implemented.
+* export-output: not implemented.
+* export-plot: `jpeg()`, `png()`, `bmp()`, `tiff()` of `pdf()`.
+* export-all-plots: `jpeg()`, `png()`, `bmp()`, `tiff()` of `pdf()`.
+* export-world: `save()` can save any created R objects (worlds, turtles, patches, globals, etc.).
+
+* extensions: similar as using R packages. Load packages with `library()`, then all the functions from the loaded package are available.
+
+* extract-hsb: `col2hsv()` from IDPmisc.
+
+* extract-rgb: `col2rgb()`.
+
+
+### F
+
+* face: `face()` from NetLogoR.
+
+* facexy: `face()` from NetLogoR.
+
+* file-at-end?: not implemented.
+
+* file-close: not implemented.
+
+* file-close-all: not implemented.
+
+* file-delete: `file.remove()`.
+
+* file-exists?: `file.exists()`.
+
+* file-flush: not implemented.
+
+* file-open: `read.table()`, `read.csv`, `load()`, `raster()`, etc., depends on the file format.
+
+* file-print: not implemented.
+
+* file-read: not implemented.
+
+* file-read-characters: not implemented.
+
+* file-read-line: not implemented.
+
+* file-show: not implemented.
+
+* file-type: not implemented.
+
+* file-write: not implemented.
+
+* filter: `Filter()`.
+
+* first: `nameList[[1]]` for lists; `substr(nameString, 1, 1)` for strings.
+
+* floor: `floor()`.
+
+* follow: not implemented.
+
+* follow-me: not implemented.
+
+* foreach: `for(i in 1:length(nameList)) {task(nameList[[i]])}`, `lapply()` or `sapply()` for single list or `mapply()` for multiple lists. Functions are the same when used with vectors, except for the for-loop : `for(i in 1:length(nameVector)) {task(nameVector[i])}`.
+
+* forward (fd): `fd()` from NetLogoR.
+
+* fput: `c(newElement, nameList)` for lists and vectors.
+
+
+### G
+
+* globals: not implemented.
+
+
+### H
+
+* hatch: `hatch()` from NetLogoR. The new hatched turtles cannot directly run functions. The turtles agentset containing the parent turtles and the new hatched turtles needs to be assigned to an object, then the new hatched turtles must be identified within that agentset to run some functions.
+* hatch-\<breeds>: `hatch()` from NetLogoR. The new hatched turtles cannot directly run functions. The turtles agentset containing the parent turtles and the new hatched turtles needs to be assigned to an object, then the new hatched turtles must be identified within that agentset to run some functions.
+
+* heading: use `of()` from NetLogoR to access turtles' headings.
+
+* hidden?: not implemented.
+
+* hide-link: links not implemented.
+
+* hide-turtle (ht): not implemented.
+
+* histogram: `hist()`. Use `unlist()` to transform a list into a vector prior using `hist()`. Only numeric values can be passed on to `hist()` (e.g., strings cannot be used).
+
+* home: `home()` from NetLogoR.
+
+* hsb: `col2rgb(hsv())`.
+
+* hubnet-broadcast: HubNet not implemented.
+
+* hubnet-broadcast-clear-output: HubNet not implemented.
+
+* hubnet-broadcast-message: HubNet not implemented.
+
+* hubnet-clear-override: HubNet not implemented.
+* hubnet-clear-overrides: HubNet not implemented.
+
+* hubnet-clients-list: HubNet not implemented.
+
+* hubnet-enter-message?: HubNet not implemented.
+
+* hubnet-exit-message?: HubNet not implemented.
+
+* hubnet-fetch-message: HubNet not implemented.
+
+* hubnet-kick-client: HubNet not implemented.
+
+* hubnet-kick-all-clients: HubNet not implemented.
+
+* hubnet-message: HubNet not implemented.
+
+* hubnet-message-source: HubNet not implemented.
+
+* hubnet-message-tag: HubNet not implemented.
+
+* hubnet-message-waiting?: HubNet not implemented.
+
+* hubnet-reset: HubNet not implemented.
+
+* hubnet-reset-perspective: HubNet not implemented.
+
+* hubnet-send: HubNet not implemented.
+
+* hubnet-send-clear-output: HubNet not implemented.
+
+* hubnet-send-follow: HubNet not implemented.
+
+* hubnet-send-message: HubNet not implemented.
+
+* hubnet-send-override: HubNet not implemented.
+
+* hubnet-send-watch: HubNet not implemented.
+
+* hubnet-set-client-interface: HubNet not implemented.
+
+
+### I
+
+* if: `if(){}`.
+
+* ifelse: `ifelse()` or `if(){} else {}`.
+
+* ifelse-value: `ifelse()` or `if(){} else {}`.
+
+* import-drawing: not implemented.
+
+* import-pcolors: not implemented.
+
+* import-pcolors-rgb: not implemented.
+
+* import-world: not implemented.
+
+* in-cone: `inCone()` from NetLogoR.
+
+* in-\<breed>-neighbor?: links not implemented.
+* in-link-neighbor?: links not implemented.
+
+* in-\<breed>-neighbors: links not implemented.
+* in-link-neighbors: links not implemented.
+
+* in-\<breed>-from: links not implemented.
+* in-link-from: links not implemented.
+
+* __includes: not implemented.
+
+* in-radius: `inRadius()` from NetLogoR.
+
+* inspect: `inspect()` from NetLogoR to inspect turtles; or `of()` from NetLogoR to obtain variables values for patches or turtles.
+
+* int: `trunc()`.
+
+* is-agent?: `isNLclass()` from NetLogoR.
+* is-agentset?: `isNLclass()` from NetLogoR.
+* is-boolean?: `is.logical()`.
+* is-command-task?: not implemented.
+* is-directed-link?: links not implemented.
+* is-link?: links not implemented.
+* is-link-set?: links not implemented.
+* is-list?: `is.list()`.
+* is-number?: `is.numeric()`.
+* is-patch?: `isNLclass()` from NetLogoR.
+* is-patch-set?: `isNLclass()` from NetLogoR.
+* is-reporter-task?: not implemented.
+* is-string?: `is.character()`.
+* is-turtle?: `isNLclass()` from NetLogoR.
+* is-turtle-set?: `isNLclass()` in NetLogoR.
+* is-undirected-link?: links not implemented.
+
+* item: `nameList[[index]]` for lists; `substr(nameString, index, index)` for strings; `nameVector[index]` for vectors. Indices begin from 1, not 0 like in NetLogo.
+
+
+### J
+
+* jump: `fd(..., out = FALSE)` or `bk(..., out = FALSE)` from NetLogoR.
+
+
+### L
+
+* label: `text()` to add labels on plot.
+
+* label-color: `text()` to add labels on plot.
+
+* last: `nameList[[length(nameList)]]` or `tail(nameList, n = 1)` for lists; `substring(nameString, nchar(nameString))` for strings; `nameVector[length(nameVector)]` or `tail(nameVector, n = 1)` for vectors.
+
+* layout-circle: `layoutCircle()` from NetLogoR.
+
+* layout-radial: links not implemented.
+
+* layout-spring: links not implemented.
+
+* layout-tutte: links not implemented.
+
+* left (lt): `left()` from NetLogoR.
+
+* length: `length()` for lists and vectors; `nchar()` for strings.
+
+* let: not implemented.
+
+* link: links not implemented.
+
+* link-heading: links not implemented.
+
+* link-length: links not implemented.
+
+* link-set: links not implemented.
+
+* link-shapes: links not implemented.
+
+* links: links not implemented.
+
+* links-own: links not implemented.
+
+* list: `list()`.
+
+* ln: `log()`.
+
+* log: `log2()`, `log10()` or `log(..., base)`.
+
+* loop: `repeat{}`.
+
+* lput: `c(nameList, newElement)` for lists and vectors.
+
+
+### M
+
+* map: `for(i in 1:length(nameList)) {task(nameList[[i]])}`, `lapply()` for single list or `mapply()` for multiple lists. Functions are the same when used with vectors, except for the for-loop : `for(i in 1:length(nameVector)) {task(nameVector[i])}`.
+
+* max: `max()`. Use `unlist()` to transform a list into a vector prior using `max()`.
+
+* max-n-of: `maxNof()` from NetLogoR.
+
+* max-one-of: `maxOneOf()` from NetLogoR.
+
+* max-pxcor: `maxPxcor()` from NetLogoR.
+* max-pycor: `maxPycor()` from NetLogoR.
+
+* mean: `mean()`. Use `unlist()` to transform a list into a vector prior using `mean()`.
+
+* median: `median()`. Use `unlist()` to transform a list into a vector prior using `median()`.
+
+* member?: `pExist()` or `tExist()`, both from NetLogoR to test patches or turtles existence in an agenset. `element %in% nameList` for lists and vectors; `grepl()` for strings.
+
+* min: `min()`. Use `unlist()` to transform a list into a vector prior using `min()`.
+
+* min-n-of: `minNof()` from NetLogoR.
+
+* min-one-of: `minOneOf()` from NetLogoR.
+
+* min-pxcor: `minPxcor()` from NetLogoR.
+* min-pycor: `minPycor()` from NetLogoR.
+
+* mod: `%%`.
+
+* modes: `mlv()` from modeest.
+
+* mouse-down?: not implemented.
+
+* mouse-inside?: not implemented.
+
+* mouse-xcor: not implemented.
+* mouse-ycor:not implemented.
+
+* move-to: `moveTo()` from NetLogoR.
+
+* movie-cancel: see package animation.
+
+* movie-close: see package animation.
+
+* movie-grab-view: see package animation.
+* movie-grab-interface: see package animation.
+
+* movie-set-frame-rate: see package animation.
+
+* movie-start: see package animation.
+
+* movie-status: see package animation.
+
+* my-\<breeds>: links not implemented.
+* my-links: links not implemented.
+
+* my-in-\<breeds>: links not implemented.
+* my-in-links: links not implemented.
+
+* my-out-\<breeds>: links not implemented.
+* my-out-links: links not implemented.
+
+* myself: not implemented.
+
+
+### N
+
+* n-of: `nOf()` from NetLogoR.
+
+* n-values: `rep()` or `(for i in 1:n){}`.
+
+* neighbors: `neighbors()` from NetLogoR.
+* neighbors4: `neighbors()` from NetLogoR.
+
+* \<breed>-neighbors: links not implemented.
+* link-neighbors: links not implemented.
+
+* \<breed>-neighbor?: links not implemented.
+* link-neighbor?: links not implemented.
+
+* netlogo-applet?: not implemented.
+
+* netlogo-version: `R.Version()`.
+
+* netlogo-web?: not implemented.
+
+* new-seed: `rm(.Random.seed)` removes the old seed and automatically select a random new one.  
+
+* no-display: not implemented.
+
+* nobody: not implemented.
+
+* no-links: links not implemented.
+
+* no-patches: `noPatches()` from NetLogoR.
+
+* not: `!`.
+
+* no-turtles: `noTurtles()` from NetLogoR.
+
+
+### O
+
+* of: `of()` from NetLogoR. `world[pxcor, pycor]` can also be used to report the value(s) of a single patch.
+
+* one-of: `oneOf()` from NetLogoR to select agent in an agentset; `sample()` for lists and vectors.
+
+* or: `|`.
+
+* other: `other()` from NetLogoR.
+
+* other-end: links not implemented.
+
+* out-\<breed>-neighbor?: links not implemented.
+* out-link-neighbor?: links not implemented.
+
+* out-\<breed>-neighbors: links not implemented.
+* out-link-neighbors: links not implemented.
+
+* out-\<breed>-to: links not implemented.
+* out-link-to: links not implemented.
+
+* output-print: not implemented.
+* output-show: not implemented.
+* output-type: not implemented.
+* output-write: not implemented.
+
+
+### P
+
+* patch: `patch()` from NetLogoR.
+
+* patch-ahead: `patchAhead()` from NetLogoR.
+
+* patch-at: `patchAt()` from NetLogoR.
+
+* patch-at-heading-and-distance: `patchDistDir()` from NetLogoR.
+
+* patch-here: `patchHere()` from NetLogoR.
+
+* patch-left-and-ahead: `patchLeft()` from NetLogoR.
+* patch-right-and-ahead: `patchRight()` from NetLogoR.
+
+* patch-set: `patchSet()` from NetLogoR.
+
+* patch-size: not implemented.
+
+* patches: `patches()` from NetLogoR.
+
+* patches-own: a new world must be created with `createWorld()` to create a new patch variable. This new world can then be stacked with others using `stackWorlds()` to create a single object with the different patch values.
+
+* pcolor: not implemented.
+
+* pen-down (pd): SpatialLines objects from sp should be derived from the turtles object to plot their trajectories, by using their current and previous coordiantes.
+* pen-erase (pe): not implemented.
+* pen-up (pu): not implemented.
+
+* pen-mode: not implemented.
+
+* pen-size: `plot(..., lwd = x)`.
+
+* plabel: `text()` to add labels on plot.
+
+* plabel-color: `text()` to add labels on plot.
+
+* plot: `plot()` or `Plot()` from `quickPlot`
+
+* plot-name: `dev.cur()` returns the name and number of the active device/window where to plot. `plot(..., main = x)` gives a title to the plot.
+
+* plot-pen-exists?: not implemented.
+
+* plot-pen-down: SpatialLines objects from sp should be derived from the turtles object to plot their trajectories, by using their current and previous coordiantes.
+* plot-pen-up: not implemented.
+
+* plot-pen-reset: not implemented.
+
+* plotxy: not implemented.
+
+* plot-x-min: not implemented.
+* plot-x-max: not implemented.
+* plot-y-min: not implemented.
+* plot-y-max: not implemented.
+
+* position: `match()` for lists and vectors; `regexpr()[1]` or `StrPos()` from DescTools for strings.
+
+* precision: `round()`.
+
+* print: `print()`.
+
+* pxcor: use `patch()` from NetLogoR to access patches' coordinates at any [x, y] locations.
+* pycor: use `patch()` from NetLogoR to access patches' coordinates at any [x, y] locations.
+
+
+### R
+
+* random: `sample()`.
+
+* random-float: `runif()`.
+
+* random-exponential: `rexp()`.
+* random-gamma: `rgamma()`.
+* random-normal: `rnorm()`.
+* random-poisson: `rpois()`.
+
+* random-pxcor: `randomPxcor()` from NetLogoR.
+* random-pycor: `randomPycor()` from NetLogoR.
+
+* random-seed: `set.seed()`.
+
+* random-xcor: `randomXcor()` from NetLogoR. Use `randomXYcor()` from NetLogoR to generate random xcor and ycor at the same time.
+* random-ycor: `randomYcor(`) from NetLogoR. Use `randomXYcor()` from NetLogoR to generate random xcor and ycor at the same time.
+
+* read-from-string: `get()`.
+
+* reduce: `Reduce()`.
+
+* remainder: `%/%`.
+
+* remove: `nameList[nameList != element]` for list and vectors; `gsub(element, "", nameString)` for strings.
+
+* remove-duplicate: `unique()` for lists and vectors.
+
+* remove-item: `nameList[-index]` for list and vectors; `gsub(substr(nameString, index, index), "", nameString)` for strings.
+
+* repeat: `for(i in 1:n){task}`.
+
+* replace-item: `nameList[[index]] <- value` for lists; `gsub(substr(nameString, index, index), characters, nameString)` for strings; `nameVector[index] <- value` for vectors.
+
+* report: `return()`.
+
+* reset-perspective (rp): not implemented.
+
+* reset-ticks: not implemented.
+
+* reset-timer: not implemented.
+
+* resize-world: create a new world with `createWorld()` and assign it to the object name of the previous world to overwrite it. Patches values from the previous world are then lost. To kill all the turtles, see the NetLogoR Dictionnary entry for clear-turtles.
+
+* reverse: `rev()` for lists and vectors; `paste(rev(unlist(strsplit(nameString, split=""))), collapse=""))` for strings.
+
+* rgb: `rgb2hsv()`.
+
+* ride: not implemented.
+
+* ride-me: not implemented.
+
+* right (rt): `right()` from NetLogoR.
+
+* round: `round()`.
+
+* run: not implemented.
+* runresult: not implemented.
+
+
+### S
+
+* scale-color: `gray.colors` or `grey.colors`, `rainbow()` or see RColorBrewer package.
+
+* self: not implemented.
+
+* ; (semicolon): `#`.
+
+* sentence (se): `c()`.
+
+* set: `NLset()` from NetLogoR.
+
+* set-current-directory: `setwd()`.
+
+* set-current-plot: `dev.set()`.
+
+* set-current-plot-pen: not implemented.
+
+* set-default-shape: not implemented.
+
+* set-histogram-num-bars: `hist(..., breaks = x)`.
+
+* __set-line-thickness: not implemented.
+
+* set-patch-size: not implemented.
+
+* set-plot-pen-color: `plot(..., col = x)` or `Plot(..., cols = x)` from `quickPlot`.
+
+* set-plot-pen-interval: not implemented.
+
+* set-plot-pen-mode: not implemented.
+
+* setup-plots: not implemented.
+
+* set-plot-x-range: `plot(..., xlim = c(x, x))`.
+* set-plot-y-range: `plot(..., ylim = c(x, x))`.
+
+* setxy: `setXY()` from NetLogoR.
+
+* shade-of?: not implemented.
+
+* shape: `plot(..., pch = x)`.
+
+* shapes: not implemented.
+
+* show: not implemented
+
+* show-turtle (st): not implemented.
+
+* show-link: links not implemented.
+
+* shuffle: `sample()`.
+
+* sin: `sin()` takes an input value in radians. Use `rad()` from CircStats to convert the input from degrees to radians.
+
+* sort: `sort()`. Use `unlist()` to transform a list into a vector prior using `sort()`.
+
+* sort-by: `sort(..., decreasing = x)`. Use `unlist()` to transform a list into a vector prior using `sort()`.
+
+* sort-on: `sortOn()` from NetLogoR.
+
+* sprout:` sprout()` from NetLogoR. The new sprouted turtles cannot directly run functions. The turtles agentset containing the parent turtles and the new sprouted turtles needs to be assigned to an object, then the new sprouted turtles must be identified within the agentset to run some functions.
+* sprout-\<breeds>: `sprout()` from NetLogoR. The new sprouted turtles cannot directly run functions. The turtles agentset containing the parent turtles and the new sprouted turtles needs to be assigned to an object, then the new sprouted turtles must be identified within the agentset to run some functions.
+
+* sqrt: `sqrt()`.
+
+* stamp: `points()` or `Plot(..., addTo = x)` from `quickPlot`.
+
+* stamp-erase: not implemented.
+
+* standard-deviation: `sd()`. Use `unlist()` to transform a list into a vector prior using `sd()`.
+
+* startup: not implemented.
+
+* stop: `stop()`.
+
+* stop-inspecting: not implemented.
+
+* stop-inspecting-dead-agents: not implemented.
+
+* subject: not implemented.
+
+* sublist: `nameList[index1:index2]` for lists and vectors. Indices begin from 1, not 0 like in NetLogo.
+* substring: `substr(nameString, index1, index2)`. Indices begin from 1, not 0 like in NetLogo.
+
+* subtract-headings: `subHeadings()` from NetLogoR.
+
+* sum: `sum()`. Use `unlist()` to transform a list into a vector prior using `sum()`.
+
+
+### T
+
+* tan: `tan()` takes an input value in radians. Use `rad()` from CircStats to convert the input from degrees to radians.
+
+* task: not implemented.
+
+* thickness: links not implemented.
+
+* tick: not implemented.
+
+* tick-advance: not implemented.
+
+* ticks: not implemented.
+
+* tie: links not implemented.
+
+* tie-mode: links not implemented.
+
+* timer: not implemented.
+
+* to: `function(){}`.
+
+* to-report: `function(){}`.
+
+* towards: `towards()` from NetLogoR.
+
+* towardsxy: `towards()` from NetLogoR.
+
+* turtle: `turtle()` from NetLogoR.
+
+* turtle-set: `turtleSet()` from NetLogoR.
+
+* turtles: not implemented. Calling the name of the turtles agentset reports all the turtles in it.
+
+* turtles-at: `turtlesAt()` from NetLogoR.
+* \<breeds>-at: `turtlesAt()` from NetLogoR.
+
+* turtles-here: `turtlesOn()` from NetLogoR.
+* \<breeds>-here: `turtlesOn()` from NetLogoR.
+
+* turtles-on: `turtlesOn()` from NetLogoR.
+* \<breeds>-on: `turtlesOn()` from NetLogoR.
+
+* turtles-own: `turtlesOwn()` from NetLogoR.
+* \<breeds>-own: `turtlesOwn()` from NetLogoR.
+
+* type: `print(paste())`.
+
+
+### U
+
+* undirected-link-breed: links not implemented.
+
+* untie: links not implemented.
+
+* update-plots: not implemented.
+
+* uphill: `uphill()` from NetLogoR.
+* uphill4: `uphill()` from NetLogoR.
+
+* user-directory: not implemented. 
+
+* user-file: not implemented.
+
+* user-new-file: not implemented.
+
+* user-input: not implemented.
+
+* user-message: not implemented.
+
+* user-one-of: not implemented.
+
+* user-yes-or-no?: not implemented.
+
+
+### V
+
+* variance: `var()`. Use `unlist()` to transform a list into a vector prior using `var()`.
+
+
+### W
+
+* wait: not implemented.
+
+* watch: not implemented.
+
+* watch-me: not implemented.
+
+* while: `while(){}`.
+
+* who: use `of()` from NetLogoR to access turtles' who numbers.
+
+* with: `NLwith()` from NetLogoR.
+
+* \<breed>-with: links not implemented.
+* link-with: links not implemented.
+
+* with-max: `withMax()` from NetLogoR.
+
+* with-min: `withMin()` from NetLogoR.
+
+* with-local-randomness: save the current seed and RNG with `oldSeed <- get(".Random.seed", envir = .GlobalEnv)` and `oldRNGkind <- RNGkind()`, and reassign it later with `do.call("RNGkind", as.list(oldRNGkind))` and `assign(".Random.seed", oldSeed, envir = .GlobalEnv)`.
+
+* without-interruption: not implemented.
+
+* word: `paste()`.
+
+* world-width: `worldWidth()` in NetLogoR.
+* world-height: `worldHeight()` in NetLogoR.
+
+* wrap-color: not implemented.
+
+* write: `print(paste())`.
+
+
+### X
+
+* xcor: use `of()` from NetLogoR to access turtles' xcor coordinates.
+
+* xor: `xor()`.
+
+
+### Y
+
+* ycor: use `of()` from NetLogoR to access turtles' ycor coordinates.
+
+
+### ?
+
+* ?: not implemented

@@ -1,0 +1,77 @@
+---
+title: "WolfSheepPredation"
+author: "Sarah Bauduin"
+date: "15 avril 2016"
+output: html_document
+---
+
+# Overview
+
+This module is a reimplementation in R using the SpaDES and NetLogoR packages of the "Wolf sheep predation" NetLogo model by [Wilensky (1997, NetLogo Wolf Sheep Predation model)](http://ccl.northwestern.edu/netlogo/models/WolfSheepPredation).
+Please refer to the NetLogo documentation for information on the model.
+
+# Usage
+
+```{r, eval=FALSE}
+library(SpaDES.core)
+library(SpaDES.tools)
+library(NetLogoR)
+
+# Define the parameters
+wolfSheepParams <- list(.plotInitialTime = NA, .plotInterval = NA,
+                        .saveInitialTime = 0, .saveInterval = 1,
+                        grassOn = TRUE, grassTGrowth = 30,
+                        nSheep = 100, gainFoodSheep = 4, reproSheep = 4,
+                        nWolf = 50, gainFoodWolf = 20, reproWolf = 5)
+
+# Model init
+wolfSheepSim <- simInit(
+  times = list(start = 0, end = 500),
+  params = list(WolfSheepPredation = wolfSheepParams),
+  modules = list("WolfSheepPredation"),
+  paths = list(modulePath = "./examples/Wolf-Sheep-Predation")
+)
+
+# Run the model
+wolfSheepRun <- spades(wolfSheepSim)
+```
+
+# Events
+
+The module events recreate the model procedures from the NetLogo model which are:
+
+* the sheep move,
+* if `grassOn = TRUE`, the sheep loose energy by moving and gain energy by eating grass if there is grass to eat at their location,
+* the sheep with low energy die,
+* some sheep reproduce,
+* the wolves move,
+* the wolves loose energy by moving,
+* the wolves gain energy by eating a sheep if there is a sheep to eat at their location,
+* the eaten sheep die,
+* the wolves with low energy die,
+* some wolves reproduce,
+* if `grassOn = TRUE`, grass grow where grass has been eaten by sheep after a certain time period.
+
+## Plotting
+
+The sheep (red) and the wolves (black) positions are plotted on the world. The world is homogeneous if `grassOn = FALSE`, or it is heterogeneous if `grassOn = TRUE` with green (1) and white (0) patches.
+
+## Saving
+
+The size of the wolf and sheep populations are recorded in the saving event, as well as the number of green patches in the world if `grassOn = TRUE`. 
+
+# Data dependencies
+
+## Input data
+
+Model parameters must be defined beforehand. Otherwise, no other input data are necessary for this module.
+
+## Output data
+
+The size of the sheep and wolf populations saved during the simulation, as well as the number of green patches if `grassOn = TRUE`, are available at the end of the simulation. 
+You can access to it with `wolfSheepRun$numSheep`, `wolfSheepRun$numWolves` and `wolfSheepRun$numGreen`.
+
+# Links to other modules
+
+No anticipated linkages to other modules.
+

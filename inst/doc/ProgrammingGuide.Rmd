@@ -1,0 +1,255 @@
+---
+title: "Programming Guide `NetLogoR`"
+author: "Sarah Bauduin, Eliot McIntire"
+date: "June, 20th 2016"
+output: 
+  rmarkdown::html_vignette:
+    number_sections: yes
+    self_contained: yes
+    toc: yes
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Programming Guide `NetLogoR`}
+  %\usepackage[utf8]{inputenc}
+---
+
+This document is based on the [NetLogo Programming Guide](https://ccl.northwestern.edu/netlogo/docs/programming.html).
+It describes how the NetLogo's programming language is translated in the R language.
+
+# `NetLogoR` features
+
+## World and agents
+
+In `NetLogoR`, the world is either a `worldMatrix` object (similar to a `matrix`) or a `worldArray` object (similar to an `array` which is a collection of matrices). It represents a two dimensional landscape, divided into a grid of square patches (*i.e.*, the matrix cells) of resolution 1.
+
+There are two types of agents in `NetLogoR`: the patches and the turtles.
+Patches cannot move whereas turtles can move.
+Patches are represented as `matrix` objects with two columns `pxcor` and `pycor`, representing the spatial location (*i.e.*, coordinates) of the center of the patches.
+See `help("worldMatrix-class")` for more details on the patch coordinates system. Turtles are defined by their coordinates `xcor` and `ycor` and data associated in  `agentMatrix` objects.
+Patches coordinates are always integers but turtles coordinates can have decimals (*i.e.*, a turtle can be positioned anywhere on a patch).
+
+`worldMatrix` and `worldArray` are similar to `RasterLayer` and `RasterStack` in the `raster` package. However, there are several differences.
+Two important differences are the mapping of X and Y coordinates and whether integer locations are in the center or at the corners of integer coordinate systems.
+In `worldMatrix` and `worldArray`, `(0, 0)` is at the bottom left, like a mathematical graph, whereas it is in the top left in `Raster*` objects, as in geographic coordinates.
+In `worldMatrix` and `worldArray`, integer coordinates are in the middle of the patch or cell, *i.e.*, `(0, 0)` is in the middle of the patch in a `worldMatrix` that has 1m resolution and integer coordinates, whereas, `(0, 0)` would be at the edge of a cell in a `Raster*` that has 1 m resolution and integer coordinates.
+`agentMatrix` is similar to `SpatialPointsDataFrame` from `sp` package, with a few differences.
+The key difference in this case is for speed.
+`agentMatrix` is based on matrices and has no coordinate reference system, both of which make operations dramatically faster than with `SpatialPointsDataFrame` objects.
+In all cases of similar object types, we have implemented functions to convert between the types.
+
+Links are not implemented in `NetLogoR`.
+
+## Procedures
+
+In `NetLogoR`, functions act on the worlds and on the agents.
+Functions can modify or used them to compute some values.
+Functions available from the R software and from different packages can be used, as well as the functions from `NetLogoR`.
+Most of the `NetLogoR` functions are a translation into the R language of the NetLogo primitives (*i.e.*, "built-in commands and reporters").
+You can create new functions or wrap several existing functions into one.
+The rules to do so are imposed by the R language.  
+
+R functions take arguments which are R objects or values. Arguments are used to carry out actions and compute results.
+
+```{r, eval=FALSE}
+# Create a world according to a given extent
+w1 <- createWorld(minPxcor = 0, maxPxcor = 10, minPycor = 0, maxPycor = 10)
+
+# Report the distance between the patch [pxcor = 0, pycor = 0] and the patch [pxcor = 1, pycor = 1]
+pDist <- NLdist(agents = cbind(pxcor = 0, pycor = 0),
+                agents2 = cbind(pxcor = 1, pycor = 1, world = w1, torus = TRUE)
+```
+
+In `NetLogoR`, the function arguments indicate which world and/or agents (*i.e.*, patches and/or turtles) are involved in the function.
+For example, in the `NLdist` function, the argument `agents` takes one patch coordinates, the argument `agents2` takes another patch coordinates, the argument `world` takes a `worldMatrix` or a `worldArray` object to indicate in which world `agents` and `agents2` are located and the argument `torus` indicate that the world is wrapped.
+
+The result/output of a function needs to be assigned to an object to be kept and re-used later in the model.
+Functions in R create new objects, they do not directly modify the ones given as arguments.
+For example, when moving turtles around using the `fd` function, the output of the function (*i.e.*, the turtles with new coordinates) needs to be re-assigned to the turtles object.
+
+```{r, eval=FALSE}
+# Create 10 turtles in the world w1
+t1 <- createTurtles(n = 10, world = w1)
+
+# Move all the turtles by a distance of 1
+t1 <- fd(world = w1, turtles = t1, dist = 1)
+```
+
+In NetLogo, pressing a button runs some code.
+To perform the button action in `NetLogoR`, the code must be sent to the R console to be executed.
+The code can be sent directly by the observer or by a scheduler function (*e.g.*, see `SpaDES` package) which executes the code according to the schedule.
+
+The R language uses `#` to add comments to the script.
+Comments make your code easier to read and understand, but they don't affect its behavior.
+
+## Variables
+
+R objects that are neither worlds, patches or turtles can be seen as global variables.
+
+To create a global variable, you create an R object. *e.g.*, `score <- 15`.
+
+Agent variables are places to store different values for an agent.
+An agent variable can be a patch or a turtle variable.
+A `worldMatrix` object holds only one variable (*i.e.*, value) per patch.
+A `worldArray` object holds several variables per patch (*i.e.*, from the different `worldMatrix` stacked).
+Turtles variables are stored as columns in the data of the `agentMatrix` object that represent them.
+You can have patch and turtle variables defined by the same name as they are not stored in the same object. 
+
+To create a new patch variable, you create a `worldMatrix` and assign values.
+The name of the object to which the world is assigned is treated as the name of the patch variable.
+
+```{r, eval=FALSE}
+# For all patches, assign a random value between 0 and 1
+pQuality <- createWorld(minPxcor = 0, maxPxcor = 9, minPycor = 0, maxPycor = 9, data = runif(n = 100, min = 0, max = 1))
+```
+
+Several turtle variables built-in in NetLogo are created at the same time when creating a turtle object in `NetLogoR`: `xcor`, `ycor`, `who`, `heading`, `prevX`, `prevY`, `breed`, and `color`.
+New turtle variables can be created:
+
+```{r, eval=FALSE}
+# Now each turtle in t1 has a "sex" variable
+t1 <- turtlesOwn (turtles = t1, tVar = "sex",
+                  tVal = c("M", "M", "M", "M", "M", "F", "F", "F", "F", "F"))
+```
+
+Turtle's breed is a turtle variable and you can have different breeds behaving differently.
+For example, you could have breeds called `sheep` and `wolf`, and have the wolves trying to eat the sheep.
+You can either specify different breeds in the same turtle object or create two objects, one sheep and one wolf.
+
+You define turtles' breed by filling the breed column when creating the turtles.
+
+```{r, eval=FALSE}
+# 5 sheep and 5 wolves
+t2 <- createTurtles(world = w1, n = 10, breed = c(rep("sheep", 5), rep("wolf", 5)))
+
+# Or
+sheep <- createTurtles(world = w1, n = 5, breed = "sheep") # 5 sheep
+wolves <- createTurtles(world = w1, n = 5, breed = "wolf") # 5 wolves
+```
+
+Or you can modify the turtles' breed after creation.
+
+```{r, eval=FALSE}
+# Turtle 0 which was "sheep" becomes "wolf"
+t2 <- NLset(turtles = t2, agents = turtle(t2, who = 0), var = "breed", val = "wolf")
+```
+
+Global variables are available for all agents.
+Patch and turtle variables are available to other agents if they can be identified by their coordinates or some other variables.
+
+```{r, eval=FALSE}
+# Reports the pQuality value of the patches:
+# [pxcor = 0, pycor = 0], [pxcor = 0, pycor = 1], and [pxcor = 0, pycor = 2]
+of(world = pQuality, agents = patch(pQuality, c(0,0,0), c(0,1,2)))
+```
+
+Local variables may occur in `NetLogoR` as inherent to the R software.
+For example, variables only defined inside functions are local variables and therefore cannot be accessed outside of the functions.
+
+## Agentsets
+
+An agentset is a set of agents and you can construct agentsets that contain only some patches or some turtles.
+An agentset cannot contain the two agent types (patches and turtles) at once.
+A patch agentset is a `matrix` that contains patches coordinates; a turtle agentset is an `agentMatrix` object containing turtles.
+Agentsets can then be passed on as arguments in functions.
+Agentsets can be redefined at any time. 
+
+## World topology
+
+By default, `NetLogoR` functions act as if the world is bounded and does not "wrap".
+Patches on the sides of the world will have fewer than 8 neighbors and turtles will not move beyond the edges of the world.
+What happen to the turtles when they reach the edge of the world must be defined. 
+
+However you can make the world a torus ("wrap"), so that each patch has the same number of neighbor patches (some located on the other side of the world) and when a turtle moves past the edge of the world, it disappears and reappears on the opposite edge.
+The option for a torus world is an argument in some of the `NetLogoR` functions and can be set `TRUE` or `FALSE`.
+
+## Tick counter
+
+It is common that time passes in discrete steps.
+Time can be defined as a global variable in the model setup (*e.g.*, `time <- 0`) and then can be incremented in the model when needed (*e.g.*, `time <- time + 1` at the end of the procedure affecting all the agents).
+
+If a for-loop or a scheduler function (*e.g.*, see `SpaDES` package) is used in the model, time does not have to be explicitely defined with a global variable and is handled internally. 
+
+## Lists and strings
+
+Lists may be seen as global variables holding one or more values and strings may be seen as global variables holding characters.
+Lists and strings are inherent to the R language.
+Please see R manuals for any related questions.
+
+NetLogo uses lists to store elements.
+In R, it is faster to use vectors when possible.
+
+## Math and random numbers
+
+R is a software dedicated for data management and statistical analyses.
+The notation and basic rules of math, as well as the random number generation, are inherent to the R software.
+Please see R manuals for any related questions.
+
+## Input/output
+
+Reading and writing files is inherent to the R language.
+Please see R manuals for any related questions on basic functions, as well as the different packages, for more complex functions to manage files.
+
+In R, a file is loaded/opened by assigning its content to an R object.
+The R object can be read, used and modified but this does not affect the original file.
+The modified R object can later be written out as a file, either by overwritting the original file or by creating a new file.
+
+## View, plot, screen output
+
+There is no interface built-in as part of `NetLogoR`. 
+
+However, you can use different plot functions for visualizations similar to the "View" of NetLogo.
+`plot(nameWorld)` works with both `worldMatrix` and `worldArray`.
+To visualize only one layer of a `worldArray`, use `plot(nameWorldArray[[layerNumber]])` or `plot(nameWorldArray[["layerName"]])`.
+Turtles can be plotted alone with `plot(nameTurtles)` or on a world already plotted with `points(nameTurtles)`.
+`Plot()` functions (with a capital "P") from `quickPlot` give a better rendering when plotting multiple time steps.
+These functions work the same way as the `plot()` ones, except when adding turtles on a world, use `Plot(nameTurtles, addTo = "nameWorld")` instead of `points(nameTurtles)`.
+
+Users can also create any other figures (*e.g.*, the number of turtles through time) on the R plot interface or generate outputs directly on the screen (*e.g.*, show the current time step).
+
+All these procedures need to be coded in the model, either using the `plot()` or `Plot()` functions adapted to the `NetLogoR` classes for the world visualization, or using R functions and of different packages for any other figures.
+Please refer to their manuals for any related questions.
+
+# How to build a model using `NetLogoR`
+
+The following steps describe how to build a basic NetLogo-type model in R using `NetLogoR`.
+Examples of R scripts are available in the "examples" folder, which can be found using:
+
+```{r, eval=FALSE}
+system.file("examples", package = "NetLogoR")
+```
+
+- Open a new R script (using RStudio or an adapted text editor like Tinn-R) to write the code of the model in it.
+Save it under the name of the model in an appropriate folder.
+
+- Start by naming and describing the model using the symbol `#` in front of each line to "comment" the information.
+This description section is not mandatory but very helpful.
+It can be considered like the "Info" tab in NetLogo but, in a R script, this section should be kept short and concise.
+
+- Load the needed packages (*e.g.*, `NetLogoR`) with the function `library()`.
+This can be done at any time in the code section but must appear before using any function from a package.
+It is convenient to load all the packages needed at the beginning.
+
+- Define the global variables as R objects.
+Global variables can be defined at any time in the code but it must be done before they are used.
+Buttons in NetLogo used to set variables must be defined as global variables at the beginning of the R script.
+
+- Create the world in which the agents will evolve with the function `createWorld()`.
+Defining the world's extent in `createWorld()` is similar as going in the "Interface" tab in NetLogo and clicking on the "Settings" button to change the model settings. 
+
+* Define and assign values to the patches when creating the world `createWorld(..., data = ...)` or after using the function `NLset()`.
+You can visualize the world with `plot(nameWorld)`.
+
+- Create the turtles (*i.e.*, moving agents) with the function `createTurtles()`.
+You can visualize the turtles by plotting them on the world with `points(nameTurtles, pch = 16)`.
+
+- Create the different procedures (*i.e.*, functions affecting the agents) by using the `NetLogoR` functions, the R functions or some from other packages.
+
+- It is useful to test the different procedures individually with a small world and a few numbers of turtles to make sure the code is doing what you want it to do.
+
+- Then, build the main procedure for the model.
+A for-loop or a scheduler function (*e.g.*, see `SpaDES` package) can be used to manage time.
+The functions placed inside the for-loop or the scheduler function will be iterated the number of time steps defined.
+The for-loop automatically increases the time step and the scheduler function internally manages time so no "tick" variable is necessary. 
+Executing the for-loop or the scheduler function correponds in NetLogo as hitting the "Go" button in a forever mode.
+The visualization can be updated at each time step and/or plotted at the end when the iterations are over.
+Remember that plot functions take time to be executed and can slow down the model.
