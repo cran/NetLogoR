@@ -19,10 +19,10 @@ Description: Easily create agent-based models in R following the 'NetLogo'
     functions can use a for loop or can be integrated with a discrete event
     simulator, such as 'SpaDES' (<https://cran.r-project.org/package=SpaDES>).
     The suggested package 'fastshp' can be installed with
-    'install.packages("fastshp", repos = "http://rforge.net", type = "source")'.
+    'install.packages("fastshp", repos = "https://rforge.net", type = "source")'.
 URL: http://netlogor.predictiveecology.org
-Version: 0.3.1
-Date: 2018-01-31
+Version: 0.3.2
+Date: 2018-02-07
 Authors@R: c(
     person("Sarah", "Bauduin", email = "sarahbauduin@hotmail.fr",
     role = c("aut", "cre")),
@@ -52,7 +52,7 @@ Collate: 'Agent-classes.R' 'Classes.R' 'NetLogoR-package.R'
         'patch-functions.R' 'plot.R' 'world-functions.R' 'quickPlot.R'
         'spades-functions.R' 'turtle-functions.R'
 NeedsCompilation: no
-Packaged: 2018-02-01 05:46:39 UTC; emcintir
+Packaged: 2018-02-12 15:06:24 UTC; Bauduin
 Author: Sarah Bauduin [aut, cre],
   Eliot J B McIntire [aut],
   Alex M Chubaty [aut],
@@ -60,4 +60,4 @@ Author: Sarah Bauduin [aut, cre],
     Minister of Natural Resources Canada [cph]
 Maintainer: Sarah Bauduin <sarahbauduin@hotmail.fr>
 Repository: CRAN
-Date/Publication: 2018-02-05 10:03:36 UTC
+Date/Publication: 2018-02-12 15:40:06 UTC
