@@ -25,15 +25,15 @@ Description: Build and run spatially explicit
     The suggested package 'fastshp' can be installed with
     'install.packages("fastshp", repos = "https://rforge.net", type = "source")'.
 URL: http://netlogor.predictiveecology.org
-Version: 0.3.3
-Date: 2018-06-07
+Version: 0.3.4
+Date: 2018-10-02
 Authors@R: c(
     person("Sarah", "Bauduin", email = "sarahbauduin@hotmail.fr",
-    role = c("aut", "cre")),
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-3252-5894")),
     person("Eliot J B", "McIntire", email = "eliot.mcintire@canada.ca",
-    role = c("aut")),
+    role = c("aut"), comment=c(ORCID = "0000-0002-6914-8316")),
     person("Alex M", "Chubaty", email = "alex.chubaty@gmail.com",
-    role = c("aut")),
+    role = c("aut"), comment = c(ORCID = "0000-0001-7146-8135")),
     person("Her Majesty the Queen in Right of Canada, as represented by the Minister of Natural Resources Canada",
     role = "cph")
     )
@@ -44,11 +44,12 @@ Imports: abind, car, CircStats, data.table, grDevices, Hmisc,
 Suggests: fastshp, knitr, magrittr, microbenchmark, rmarkdown, sf,
         SpaDES.core, testthat
 License: GPL-3
+Encoding: UTF-8
 VignetteBuilder: knitr, rmarkdown
 BugReports: https://github.com/PredictiveEcology/NetLogoR/issues
 ByteCompile: yes
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 Additional_repositories: https://rforge.net
 Collate: 'Agent-classes.R' 'Classes.R' 'NetLogoR-package.R'
         'worldNLR-classes-methods.R' 'agentMatrix-Class-methods.R'
@@ -56,12 +57,12 @@ Collate: 'Agent-classes.R' 'Classes.R' 'NetLogoR-package.R'
         'patch-functions.R' 'plot.R' 'world-functions.R' 'quickPlot.R'
         'spades-functions.R' 'turtle-functions.R'
 NeedsCompilation: no
-Packaged: 2018-06-07 15:27:15 UTC; achubaty
-Author: Sarah Bauduin [aut, cre],
-  Eliot J B McIntire [aut],
-  Alex M Chubaty [aut],
+Packaged: 2018-10-02 17:19:42 UTC; achubaty
+Author: Sarah Bauduin [aut, cre] (<https://orcid.org/0000-0002-3252-5894>),
+  Eliot J B McIntire [aut] (<https://orcid.org/0000-0002-6914-8316>),
+  Alex M Chubaty [aut] (<https://orcid.org/0000-0001-7146-8135>),
   Her Majesty the Queen in Right of Canada, as represented by the
     Minister of Natural Resources Canada [cph]
 Maintainer: Sarah Bauduin <sarahbauduin@hotmail.fr>
 Repository: CRAN
-Date/Publication: 2018-06-07 18:42:55 UTC
+Date/Publication: 2018-10-07 18:00:02 UTC
