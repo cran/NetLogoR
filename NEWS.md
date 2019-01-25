@@ -1,5 +1,9 @@
 Known issues: https://github.com/PredictiveEcology/NetLogoR/issues
 
+Version 0.3.5
+=============
+* Updates to fix CRAN check problems.
+
 Version 0.3.4
 =============
 * Set random seed in two tests.

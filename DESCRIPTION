@@ -24,9 +24,10 @@ Description: Build and run spatially explicit
     (<https://cran.r-project.org/package=SpaDES>).
     The suggested package 'fastshp' can be installed with
     'install.packages("fastshp", repos = "https://rforge.net", type = "source")'.
-URL: http://netlogor.predictiveecology.org
-Version: 0.3.4
-Date: 2018-10-02
+URL: http://netlogor.predictiveecology.org,
+        https://github.com/PredictiveEcology/NetLogoR/
+Version: 0.3.5
+Date: 2019-01-25
 Authors@R: c(
     person("Sarah", "Bauduin", email = "sarahbauduin@hotmail.fr",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0002-3252-5894")),
@@ -49,7 +50,7 @@ VignetteBuilder: knitr, rmarkdown
 BugReports: https://github.com/PredictiveEcology/NetLogoR/issues
 ByteCompile: yes
 LazyData: true
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Additional_repositories: https://rforge.net
 Collate: 'Agent-classes.R' 'Classes.R' 'NetLogoR-package.R'
         'worldNLR-classes-methods.R' 'agentMatrix-Class-methods.R'
@@ -57,7 +58,7 @@ Collate: 'Agent-classes.R' 'Classes.R' 'NetLogoR-package.R'
         'patch-functions.R' 'plot.R' 'world-functions.R' 'quickPlot.R'
         'spades-functions.R' 'turtle-functions.R'
 NeedsCompilation: no
-Packaged: 2018-10-02 17:19:42 UTC; achubaty
+Packaged: 2019-01-25 16:26:49 UTC; bauduin
 Author: Sarah Bauduin [aut, cre] (<https://orcid.org/0000-0002-3252-5894>),
   Eliot J B McIntire [aut] (<https://orcid.org/0000-0002-6914-8316>),
   Alex M Chubaty [aut] (<https://orcid.org/0000-0001-7146-8135>),
@@ -65,4 +66,4 @@ Author: Sarah Bauduin [aut, cre] (<https://orcid.org/0000-0002-3252-5894>),
     Minister of Natural Resources Canada [cph]
 Maintainer: Sarah Bauduin <sarahbauduin@hotmail.fr>
 Repository: CRAN
-Date/Publication: 2018-10-07 18:00:02 UTC
+Date/Publication: 2019-01-25 17:20:07 UTC
