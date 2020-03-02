@@ -26,13 +26,13 @@ Description: Build and run spatially explicit
     'install.packages("fastshp", repos = "https://rforge.net", type = "source")'.
 URL: http://netlogor.predictiveecology.org,
         https://github.com/PredictiveEcology/NetLogoR/
-Version: 0.3.6
-Date: 2019-11-25
+Version: 0.3.7
+Date: 2020-02-28
 Authors@R: c(
     person("Sarah", "Bauduin", email = "sarahbauduin@hotmail.fr",
-    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-3252-5894")),
+    role = c("aut"), comment = c(ORCID = "0000-0002-3252-5894")),
     person("Eliot J B", "McIntire", email = "eliot.mcintire@canada.ca",
-    role = c("aut"), comment=c(ORCID = "0000-0002-6914-8316")),
+    role = c("aut", "cre"), comment=c(ORCID = "0000-0002-6914-8316")),
     person("Alex M", "Chubaty", email = "alex.chubaty@gmail.com",
     role = c("aut"), comment = c(ORCID = "0000-0001-7146-8135")),
     person("Her Majesty the Queen in Right of Canada, as represented by the Minister of Natural Resources Canada",
@@ -51,7 +51,7 @@ VignetteBuilder: knitr, rmarkdown
 BugReports: https://github.com/PredictiveEcology/NetLogoR/issues
 ByteCompile: yes
 LazyData: true
-RoxygenNote: 7.0.0
+RoxygenNote: 7.0.2
 Additional_repositories: https://rforge.net
 Collate: 'Agent-classes.R' 'Classes.R' 'NetLogoR-package.R'
         'worldNLR-classes-methods.R' 'agentMatrix-Class-methods.R'
@@ -59,12 +59,12 @@ Collate: 'Agent-classes.R' 'Classes.R' 'NetLogoR-package.R'
         'patch-functions.R' 'plot.R' 'world-functions.R' 'quickPlot.R'
         'spades-functions.R' 'turtle-functions.R'
 NeedsCompilation: no
-Packaged: 2019-11-26 16:45:39 UTC; achubaty
-Author: Sarah Bauduin [aut, cre] (<https://orcid.org/0000-0002-3252-5894>),
-  Eliot J B McIntire [aut] (<https://orcid.org/0000-0002-6914-8316>),
+Packaged: 2020-02-28 17:31:57 UTC; achubaty
+Author: Sarah Bauduin [aut] (<https://orcid.org/0000-0002-3252-5894>),
+  Eliot J B McIntire [aut, cre] (<https://orcid.org/0000-0002-6914-8316>),
   Alex M Chubaty [aut] (<https://orcid.org/0000-0001-7146-8135>),
   Her Majesty the Queen in Right of Canada, as represented by the
     Minister of Natural Resources Canada [cph]
-Maintainer: Sarah Bauduin <sarahbauduin@hotmail.fr>
+Maintainer: Eliot J B McIntire <eliot.mcintire@canada.ca>
 Repository: CRAN
-Date/Publication: 2019-11-27 12:00:02 UTC
+Date/Publication: 2020-03-02 10:00:08 UTC
