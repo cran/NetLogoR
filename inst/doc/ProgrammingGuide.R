@@ -4,7 +4,7 @@
 #  
 #  # Report the distance between the patch [pxcor = 0, pycor = 0] and the patch [pxcor = 1, pycor = 1]
 #  pDist <- NLdist(agents = cbind(pxcor = 0, pycor = 0),
-#                  agents2 = cbind(pxcor = 1, pycor = 1, world = w1, torus = TRUE)
+#                  agents2 = cbind(pxcor = 1, pycor = 1), world = w1, torus = TRUE)
 
 ## ---- eval=FALSE--------------------------------------------------------------
 #  # Create 10 turtles in the world w1

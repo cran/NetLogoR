@@ -19,8 +19,9 @@ or
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://netlogor.predictiveecology.org}
+  \item \url{https://netlogor.predictiveecology.org}
   \item \url{https://github.com/PredictiveEcology/NetLogoR/}
+  \item \url{https://groups.google.com/g/netlogor}
   \item Report bugs at \url{https://github.com/PredictiveEcology/NetLogoR/issues}
 }
 
@@ -31,7 +32,7 @@ Useful links:
 Authors:
 \itemize{
   \item Sarah Bauduin \email{sarahbauduin@hotmail.fr} (\href{https://orcid.org/0000-0002-3252-5894}{ORCID})
-  \item Alex M Chubaty \email{alex.chubaty@gmail.com} (\href{https://orcid.org/0000-0001-7146-8135}{ORCID})
+  \item Alex M Chubaty \email{achubaty@for-cast.ca} (\href{https://orcid.org/0000-0001-7146-8135}{ORCID})
 }
 
 Other contributors:
