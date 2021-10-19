@@ -27,8 +27,8 @@ Description: Build and run spatially explicit
 URL: https://netlogor.predictiveecology.org,
         https://github.com/PredictiveEcology/NetLogoR/,
         https://groups.google.com/g/netlogor
-Version: 0.3.8
-Date: 2021-07-09
+Version: 0.3.9
+Date: 2021-10-18
 Authors@R: c(
     person("Sarah", "Bauduin", email = "sarahbauduin@hotmail.fr",
            role = c("aut"), comment = c(ORCID = "0000-0002-3252-5894")),
@@ -50,9 +50,9 @@ Additional_repositories: https://rforge.net
 BugReports: https://github.com/PredictiveEcology/NetLogoR/issues
 ByteCompile: yes
 Encoding: UTF-8
+Language: en-CA
 License: GPL-3
-Language: en-US
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 VignetteBuilder: knitr, rmarkdown
 Collate: 'Agent-classes.R' 'NetLogoR-package.R'
         'worldNLR-classes-methods.R' 'agentMatrix-Class-methods.R'
@@ -60,7 +60,7 @@ Collate: 'Agent-classes.R' 'NetLogoR-package.R'
         'patch-functions.R' 'plot.R' 'world-functions.R' 'quickPlot.R'
         'spades-functions.R' 'turtle-functions.R'
 NeedsCompilation: no
-Packaged: 2021-07-09 20:29:00 UTC; achubaty
+Packaged: 2021-10-18 21:58:46 UTC; achubaty
 Author: Sarah Bauduin [aut] (<https://orcid.org/0000-0002-3252-5894>),
   Eliot J B McIntire [aut, cre] (<https://orcid.org/0000-0002-6914-8316>),
   Alex M Chubaty [aut] (<https://orcid.org/0000-0001-7146-8135>),
@@ -68,4 +68,4 @@ Author: Sarah Bauduin [aut] (<https://orcid.org/0000-0002-3252-5894>),
     Minister of Natural Resources Canada [cph]
 Maintainer: Eliot J B McIntire <eliot.mcintire@canada.ca>
 Repository: CRAN
-Date/Publication: 2021-07-10 10:40:02 UTC
+Date/Publication: 2021-10-19 17:00:02 UTC
