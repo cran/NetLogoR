@@ -15,7 +15,19 @@
 
 <title>NetLogoR Dictionary</title>
 
-<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -31,7 +43,188 @@
 
 
 
-<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 
 
@@ -50,40 +243,58 @@
 
 <div id="TOC">
 <ul>
-<li><a href="#netlogo-constants">NetLogo constants</a></li>
-<li><a href="#netlogo-primitives">NetLogo primitives</a>
+<li><a href="#netlogo-constants" id="toc-netlogo-constants">NetLogo
+constants</a></li>
+<li><a href="#netlogo-primitives" id="toc-netlogo-primitives">NetLogo
+primitives</a>
 <ul>
-<li><a href="#a">A</a></li>
-<li><a href="#b">B</a></li>
-<li><a href="#c">C</a></li>
-<li><a href="#d">D</a></li>
-<li><a href="#e">E</a></li>
-<li><a href="#f">F</a></li>
-<li><a href="#g">G</a></li>
-<li><a href="#h">H</a></li>
-<li><a href="#i">I</a></li>
-<li><a href="#j">J</a></li>
-<li><a href="#l">L</a></li>
-<li><a href="#m">M</a></li>
-<li><a href="#n">N</a></li>
-<li><a href="#o">O</a></li>
-<li><a href="#p">P</a></li>
-<li><a href="#r">R</a></li>
-<li><a href="#s">S</a></li>
-<li><a href="#t">T</a></li>
-<li><a href="#u">U</a></li>
-<li><a href="#v">V</a></li>
-<li><a href="#w">W</a></li>
-<li><a href="#x">X</a></li>
-<li><a href="#y">Y</a></li>
-<li><a href="#section">?</a></li>
+<li><a href="#a" id="toc-a">A</a></li>
+<li><a href="#b" id="toc-b">B</a></li>
+<li><a href="#c" id="toc-c">C</a></li>
+<li><a href="#d" id="toc-d">D</a></li>
+<li><a href="#e" id="toc-e">E</a></li>
+<li><a href="#f" id="toc-f">F</a></li>
+<li><a href="#g" id="toc-g">G</a></li>
+<li><a href="#h" id="toc-h">H</a></li>
+<li><a href="#i" id="toc-i">I</a></li>
+<li><a href="#j" id="toc-j">J</a></li>
+<li><a href="#l" id="toc-l">L</a></li>
+<li><a href="#m" id="toc-m">M</a></li>
+<li><a href="#n" id="toc-n">N</a></li>
+<li><a href="#o" id="toc-o">O</a></li>
+<li><a href="#p" id="toc-p">P</a></li>
+<li><a href="#r" id="toc-r">R</a></li>
+<li><a href="#s" id="toc-s">S</a></li>
+<li><a href="#t" id="toc-t">T</a></li>
+<li><a href="#u" id="toc-u">U</a></li>
+<li><a href="#v" id="toc-v">V</a></li>
+<li><a href="#w" id="toc-w">W</a></li>
+<li><a href="#x" id="toc-x">X</a></li>
+<li><a href="#y" id="toc-y">Y</a></li>
+<li><a href="#section" id="toc-section">?</a></li>
 </ul></li>
 </ul>
 </div>
 
-<p>This document is based on the <a href="https://ccl.northwestern.edu/netlogo/docs/dictionary.html">NetLogo Dictionary</a>. It lists all the entries in the NetLogo Dictionary (<em>i.e.</em>, NetLogo primitives) and informs the best replacements to use in R. Are suggested as replacements, functions from the <code>NetLogoR</code> package, as well as functions from the R software and of other packages (indicated below). To find how to use these functions, please refers to their documentation by using <code>help(&quot;nameFunction&quot;)</code>.</p>
-<p>When no <code>NetLogoR</code> function was built to translate a NetLogo primitive and that, to our knowledge, no R function (or from other packages) could easily recreate the primitive, we indicated “not implemented”. The NetLogo primitives not implemented should not prevent the users from building individual-based models involving patches and turtles.</p>
-<p>For the inverse dictionary (<em>i.e.</em>, to find the NetLogo equivalents of the <code>NetLogoR</code> functions) please look at the <code>NetLogoR</code> documentation as the links to NetLogo Dictionary entries for the equivalent primitives are provided in the “See Also” section of each <code>NetLogoR</code> function.</p>
+<p>This document is based on the <a href="https://ccl.northwestern.edu/netlogo/docs/dictionary.html">NetLogo
+Dictionary</a>. It lists all the entries in the NetLogo Dictionary
+(<em>i.e.</em>, NetLogo primitives) and informs the best replacements to
+use in R. Are suggested as replacements, functions from the
+<code>NetLogoR</code> package, as well as functions from the R software
+and of other packages (indicated below). To find how to use these
+functions, please refers to their documentation by using
+<code>help(&quot;nameFunction&quot;)</code>.</p>
+<p>When no <code>NetLogoR</code> function was built to translate a
+NetLogo primitive and that, to our knowledge, no R function (or from
+other packages) could easily recreate the primitive, we indicated “not
+implemented”. The NetLogo primitives not implemented should not prevent
+the users from building individual-based models involving patches and
+turtles.</p>
+<p>For the inverse dictionary (<em>i.e.</em>, to find the NetLogo
+equivalents of the <code>NetLogoR</code> functions) please look at the
+<code>NetLogoR</code> documentation as the links to NetLogo Dictionary
+entries for the equivalent primitives are provided in the “See Also”
+section of each <code>NetLogoR</code> function.</p>
 <div id="netlogo-constants" class="section level2">
 <h2>NetLogo constants</h2>
 <ul>
@@ -108,7 +319,8 @@
 <li><p>magenta: <code>&quot;magenta&quot;</code>.</p></li>
 <li><p>pink: <code>&quot;pink&quot;</code>.</p></li>
 </ul>
-<p>See <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a> for more colors.</p>
+<p>See <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a>
+for more colors.</p>
 </div>
 <div id="netlogo-primitives" class="section level2">
 <h2>NetLogo primitives</h2>
@@ -116,18 +328,35 @@
 <h3>A</h3>
 <ul>
 <li><p>abs: <code>abs()</code>.</p></li>
-<li><p>acos: <code>acos()</code>, returns value in radians. Use <code>deg()</code> from <code>CircStats</code> to convert the result in degrees.</p></li>
+<li><p>acos: <code>acos()</code>, returns value in radians. Use
+<code>deg()</code> from <code>CircStats</code> to convert the result in
+degrees.</p></li>
 <li><p>all?: <code>NLall()</code> from <code>NetLogoR</code>.</p></li>
 <li><p>and: <code>&amp;</code>.</p></li>
 <li><p>any?: <code>NLany()</code> from <code>NetLogoR</code>.</p></li>
 <li><p>approximate-hsb: <code>hsv()</code>.</p></li>
 <li><p>approximate-rgb: <code>rgb()</code>.</p></li>
-<li><p>arithmetic operators: <code>+</code>, <code>*</code>, <code>-</code>, <code>/</code>, <code>^,</code> <code>&lt;</code>, <code>&gt;</code>, <code>=</code> or <code>==</code> (depends if it is for setting or testing), <code>!=</code>, <code>&lt;=</code>, <code>&gt;=</code>.</p></li>
-<li><p>asin: <code>asin()</code>, returns value in radians. Use <code>deg()</code> from <code>CircStats</code> to convert the result in degrees.</p></li>
-<li><p>ask: not implemented. The agents running a <code>NetLogoR</code> function is one of the function arguments that need to be provided.</p></li>
-<li><p>ask-concurrent: not implemented. When multiple agents are provided in a <code>NetLogoR</code> function, they all execute the function at the same time. To execute a function similarly as ask-concurrent, the function needs to be provided with one agent at the time.</p></li>
-<li><p>at-points: <code>turtlesAt()</code> from <code>NetLogoR</code> or <code>patchAt()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>atan: <code>atan2()</code>, returns value in radians. Use <code>deg()</code> from <code>CircStats</code> to convert the result in degrees.</p></li>
+<li><p>arithmetic operators: <code>+</code>, <code>*</code>,
+<code>-</code>, <code>/</code>, <code>^,</code> <code>&lt;</code>,
+<code>&gt;</code>, <code>=</code> or <code>==</code> (depends if it is
+for setting or testing), <code>!=</code>, <code>&lt;=</code>,
+<code>&gt;=</code>.</p></li>
+<li><p>asin: <code>asin()</code>, returns value in radians. Use
+<code>deg()</code> from <code>CircStats</code> to convert the result in
+degrees.</p></li>
+<li><p>ask: not implemented. The agents running a <code>NetLogoR</code>
+function is one of the function arguments that need to be
+provided.</p></li>
+<li><p>ask-concurrent: not implemented. When multiple agents are
+provided in a <code>NetLogoR</code> function, they all execute the
+function at the same time. To execute a function similarly as
+ask-concurrent, the function needs to be provided with one agent at the
+time.</p></li>
+<li><p>at-points: <code>turtlesAt()</code> from <code>NetLogoR</code> or
+<code>patchAt()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>atan: <code>atan2()</code>, returns value in radians. Use
+<code>deg()</code> from <code>CircStats</code> to convert the result in
+degrees.</p></li>
 <li><p>autoplot?: not implemented.</p></li>
 <li><p>auto-plot-off: not implemented.</p></li>
 <li><p>auto-plot-on: not implemented.</p></li>
@@ -137,37 +366,73 @@
 <h3>B</h3>
 <ul>
 <li><p>back (bk): <code>bk()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>base-colors: see <code>help(rainbow)</code> for different ways of creating colors.</p></li>
+<li><p>base-colors: see <code>help(rainbow)</code> for different ways of
+creating colors.</p></li>
 <li><p>beep: <code>beep()</code> from beepr.</p></li>
-<li><p>behaviorspace-experiment-name: BehaviorSpace not implemented.</p></li>
+<li><p>behaviorspace-experiment-name: BehaviorSpace not
+implemented.</p></li>
 <li><p>behaviorspace-run-number: BehaviorSpace not implemented.</p></li>
 <li><p>both-ends: links not implemented.</p></li>
-<li><p>breed: use <code>of()</code> from <code>NetLogoR</code> to access turtles’ breeds.</p></li>
-<li><p>but-first (butfirst, bf): <code>nameList[-1]</code> for lists; <code>substring(nameString, 2)</code> for strings.</p></li>
-<li><p>but-last (but-last, bl): <code>head(nameList, -1)</code> or <code>nameList[-length(nameList)]</code> for lists; <code>substr(nameString, 1, nchar(nameString) - 1)</code> for strings.</p></li>
+<li><p>breed: use <code>of()</code> from <code>NetLogoR</code> to access
+turtles’ breeds.</p></li>
+<li><p>but-first (butfirst, bf): <code>nameList[-1]</code> for lists;
+<code>substring(nameString, 2)</code> for strings.</p></li>
+<li><p>but-last (but-last, bl): <code>head(nameList, -1)</code> or
+<code>nameList[-length(nameList)]</code> for lists;
+<code>substr(nameString, 1, nchar(nameString) - 1)</code> for
+strings.</p></li>
 </ul>
 </div>
 <div id="c" class="section level3">
 <h3>C</h3>
 <ul>
-<li><p>can-move?: <code>canMove()</code> in <code>NetLogoR</code>.</p></li>
+<li><p>can-move?: <code>canMove()</code> in
+<code>NetLogoR</code>.</p></li>
 <li><p>carefully: <code>try()</code>.</p></li>
 <li><p>ceiling: <code>ceiling()</code>.</p></li>
-<li><p>clear-all (ca): not implemented. See the <code>NetLogoR</code> dictionary entries for clear-globals, clear-ticks, clear-turtles, clear-patches, clear-drawing, clear-all-plots, and clear-output.</p></li>
-<li><p>clear-all-plots: <code>graphics.off()</code> closes all external plot windows opened and clears the plot window of RStudio.</p></li>
+<li><p>clear-all (ca): not implemented. See the <code>NetLogoR</code>
+dictionary entries for clear-globals, clear-ticks, clear-turtles,
+clear-patches, clear-drawing, clear-all-plots, and
+clear-output.</p></li>
+<li><p>clear-all-plots: <code>graphics.off()</code> closes all external
+plot windows opened and clears the plot window of RStudio.</p></li>
 <li><p>clear-drawing (cd): not implemented.</p></li>
-<li><p>clear-globals: <code>rm()</code> removes the specified objects (which can be of any class) from the R environment, these objects do not longer exist afterwards. To reset objects to 0 instead, reassign the objects (e.g., <code>nameObject &lt;- 0</code>).</p></li>
+<li><p>clear-globals: <code>rm()</code> removes the specified objects
+(which can be of any class) from the R environment, these objects do not
+longer exist afterwards. To reset objects to 0 instead, reassign the
+objects (e.g., <code>nameObject &lt;- 0</code>).</p></li>
 <li><p>clear-links: links not implemented.</p></li>
-<li><p>clear-output: <code>cat(&quot;\014&quot;)</code> clears the R console.</p></li>
-<li><p>clear-patches (cp): <code>clearPatches()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>clear-plot: <code>dev.off()</code> closes the external plot window opened or clears the plot window of RStudio, depending on which one was active. <code>clearPlot()</code> from <code>quickPlot</code> acts differently on the external plot window as it clears it but does not close it.</p></li>
-<li><p>clear-ticks: tick counter not implemented. If a global variable is used to store the time (e.g., <code>time &lt;- 0</code>; <code>time &lt;- time + 1</code>), see <code>NetLogoR</code> dictionary entry for clear-globals.</p></li>
-<li><p>clear-turtles (ct): see <code>NetLogoR</code> dictionary entry for clear-globals. If reassigning, <code>turtles &lt;- noTurtles()</code> can be used to kill all the turtles in the agentset and replace it by an empty turtle agentset.</p></li>
-<li><p>color: use <code>of()</code> from <code>NetLogoR</code> to access turtles’ colors.</p></li>
-<li><p>cos: <code>cos()</code> takes an input value in radians. Use <code>rad()</code> from <code>CircStats</code> to convert the input from degrees to radians.</p></li>
-<li><p>count: <code>NLcount()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>create-ordered-turtles (cro): <code>createOTurtles()</code> from <code>NetLogoR</code>. The created turtles must be assigned to an object before they can run some functions.</p></li>
-<li><p>create-ordered&lt;breeds&gt;: <code>createOTurtles()</code> from <code>NetLogoR</code>. The created turtles must be assigned to an object before they can run some functions.</p></li>
+<li><p>clear-output: <code>cat(&quot;\014&quot;)</code> clears the R
+console.</p></li>
+<li><p>clear-patches (cp): <code>clearPatches()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>clear-plot: <code>dev.off()</code> closes the external plot
+window opened or clears the plot window of RStudio, depending on which
+one was active. <code>clearPlot()</code> from <code>quickPlot</code>
+acts differently on the external plot window as it clears it but does
+not close it.</p></li>
+<li><p>clear-ticks: tick counter not implemented. If a global variable
+is used to store the time (e.g., <code>time &lt;- 0</code>;
+<code>time &lt;- time + 1</code>), see <code>NetLogoR</code> dictionary
+entry for clear-globals.</p></li>
+<li><p>clear-turtles (ct): see <code>NetLogoR</code> dictionary entry
+for clear-globals. If reassigning,
+<code>turtles &lt;- noTurtles()</code> can be used to kill all the
+turtles in the agentset and replace it by an empty turtle
+agentset.</p></li>
+<li><p>color: use <code>of()</code> from <code>NetLogoR</code> to access
+turtles’ colors.</p></li>
+<li><p>cos: <code>cos()</code> takes an input value in radians. Use
+<code>rad()</code> from <code>CircStats</code> to convert the input from
+degrees to radians.</p></li>
+<li><p>count: <code>NLcount()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>create-ordered-turtles (cro): <code>createOTurtles()</code> from
+<code>NetLogoR</code>. The created turtles must be assigned to an object
+before they can run some functions.</p></li>
+<li><p>create-ordered&lt;breeds&gt;: <code>createOTurtles()</code> from
+<code>NetLogoR</code>. The created turtles must be assigned to an object
+before they can run some functions.</p></li>
 <li><p>create-&lt;breed&gt;-to: links not implemented.</p></li>
 <li><p>create-&lt;breeds&gt;-to: links not implemented.</p></li>
 <li><p>create-&lt;breed&gt;-from: links not implemented.</p></li>
@@ -180,8 +445,12 @@
 <li><p>create-links-from: links not implemented.</p></li>
 <li><p>create-link-with: links not implemented.</p></li>
 <li><p>create-links-with: links not implemented.</p></li>
-<li><p>create-turtles (crt): <code>createTurtles()</code> from <code>NetLogoR</code>. The created turtles must be assigned to an object before they can run some functions.</p></li>
-<li><p>create-&lt;breeds&gt;: <code>createTurtles()</code> from <code>NetLogoR</code>. The created turtles must be assigned to an object before they can run some functions.</p></li>
+<li><p>create-turtles (crt): <code>createTurtles()</code> from
+<code>NetLogoR</code>. The created turtles must be assigned to an object
+before they can run some functions.</p></li>
+<li><p>create-&lt;breeds&gt;: <code>createTurtles()</code> from
+<code>NetLogoR</code>. The created turtles must be assigned to an object
+before they can run some functions.</p></li>
 <li><p>create-temporary-plot-pen: not implemented.</p></li>
 </ul>
 </div>
@@ -190,14 +459,20 @@
 <ul>
 <li><p>date-and-time: <code>Sys.time()</code>.</p></li>
 <li><p>die: <code>die()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>diffuse: <code>diffuse()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>diffuse4: <code>diffuse()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>diffuse: <code>diffuse()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>diffuse4: <code>diffuse()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>directed-link-breed: links not implemented.</p></li>
 <li><p>display: not implemented.</p></li>
-<li><p>distance: <code>NLdist()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>distancexy: <code>NLdist()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>downhill: <code>downhill()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>downhill4: <code>downhill()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>distance: <code>NLdist()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>distancexy: <code>NLdist()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>downhill: <code>downhill()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>downhill4: <code>downhill()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>dx: <code>dx()</code> from <code>NetLogoR</code>.</p></li>
 <li><p>dy: <code>dy()</code> from <code>NetLogoR</code>.</p></li>
 </ul>
@@ -205,7 +480,11 @@
 <div id="e" class="section level3">
 <h3>E</h3>
 <ul>
-<li><p>empty?: <code>length(nameList) == 0</code> for lists and vectors; <code>nchar(nameString) == 0</code> or <code>length(nameString) == 0</code> for strings, depending if <code>nameString = &quot;&quot;</code> or <code>nameString = character(0)</code>.</p></li>
+<li><p>empty?: <code>length(nameList) == 0</code> for lists and vectors;
+<code>nchar(nameString) == 0</code> or
+<code>length(nameString) == 0</code> for strings, depending if
+<code>nameString = &quot;&quot;</code> or
+<code>nameString = character(0)</code>.</p></li>
 <li><p>end: not implemented.</p></li>
 <li><p>end1: links not implemented.</p></li>
 <li><p>end2: links not implemented.</p></li>
@@ -216,10 +495,15 @@
 <li><p>export-view: not implemented.</p></li>
 <li><p>export-interface: not implemented.</p></li>
 <li><p>export-output: not implemented.</p></li>
-<li><p>export-plot: <code>jpeg()</code>, <code>png()</code>, <code>bmp()</code>, <code>tiff()</code> of <code>pdf()</code>.</p></li>
-<li><p>export-all-plots: <code>jpeg()</code>, <code>png()</code>, <code>bmp()</code>, <code>tiff()</code> of <code>pdf()</code>.</p></li>
-<li><p>export-world: <code>save()</code> can save any created R objects (worlds, turtles, patches, globals, etc.).</p></li>
-<li><p>extensions: similar as using R packages. Load packages with <code>library()</code>, then all the functions from the loaded package are available.</p></li>
+<li><p>export-plot: <code>jpeg()</code>, <code>png()</code>,
+<code>bmp()</code>, <code>tiff()</code> of <code>pdf()</code>.</p></li>
+<li><p>export-all-plots: <code>jpeg()</code>, <code>png()</code>,
+<code>bmp()</code>, <code>tiff()</code> of <code>pdf()</code>.</p></li>
+<li><p>export-world: <code>save()</code> can save any created R objects
+(worlds, turtles, patches, globals, etc.).</p></li>
+<li><p>extensions: similar as using R packages. Load packages with
+<code>library()</code>, then all the functions from the loaded package
+are available.</p></li>
 <li><p>extract-hsb: <code>col2hsv()</code> from IDPmisc.</p></li>
 <li><p>extract-rgb: <code>col2rgb()</code>.</p></li>
 </ul>
@@ -235,7 +519,9 @@
 <li><p>file-delete: <code>file.remove()</code>.</p></li>
 <li><p>file-exists?: <code>file.exists()</code>.</p></li>
 <li><p>file-flush: not implemented.</p></li>
-<li><p>file-open: <code>read.table()</code>, <code>read.csv</code>, <code>load()</code>, <code>raster()</code>, etc., depends on the file format.</p></li>
+<li><p>file-open: <code>read.table()</code>, <code>read.csv</code>,
+<code>load()</code>, <code>raster()</code>, etc., depends on the file
+format.</p></li>
 <li><p>file-print: not implemented.</p></li>
 <li><p>file-read: not implemented.</p></li>
 <li><p>file-read-characters: not implemented.</p></li>
@@ -244,13 +530,21 @@
 <li><p>file-type: not implemented.</p></li>
 <li><p>file-write: not implemented.</p></li>
 <li><p>filter: <code>Filter()</code>.</p></li>
-<li><p>first: <code>nameList[[1]]</code> for lists; <code>substr(nameString, 1, 1)</code> for strings.</p></li>
+<li><p>first: <code>nameList[[1]]</code> for lists;
+<code>substr(nameString, 1, 1)</code> for strings.</p></li>
 <li><p>floor: <code>floor()</code>.</p></li>
 <li><p>follow: not implemented.</p></li>
 <li><p>follow-me: not implemented.</p></li>
-<li><p>foreach: <code>for(i in 1:length(nameList)) {task(nameList[[i]])}</code>, <code>lapply()</code> or <code>sapply()</code> for single list or <code>mapply()</code> for multiple lists. Functions are the same when used with vectors, except for the for-loop : <code>for(i in 1:length(nameVector)) {task(nameVector[i])}</code>.</p></li>
-<li><p>forward (fd): <code>fd()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>fput: <code>c(newElement, nameList)</code> for lists and vectors.</p></li>
+<li><p>foreach:
+<code>for(i in 1:length(nameList)) {task(nameList[[i]])}</code>,
+<code>lapply()</code> or <code>sapply()</code> for single list or
+<code>mapply()</code> for multiple lists. Functions are the same when
+used with vectors, except for the for-loop :
+<code>for(i in 1:length(nameVector)) {task(nameVector[i])}</code>.</p></li>
+<li><p>forward (fd): <code>fd()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>fput: <code>c(newElement, nameList)</code> for lists and
+vectors.</p></li>
 </ul>
 </div>
 <div id="g" class="section level3">
@@ -262,13 +556,26 @@
 <div id="h" class="section level3">
 <h3>H</h3>
 <ul>
-<li><p>hatch: <code>hatch()</code> from <code>NetLogoR</code>. The new hatched turtles cannot directly run functions. The turtles agentset containing the parent turtles and the new hatched turtles needs to be assigned to an object, then the new hatched turtles must be identified within that agentset to run some functions.</p></li>
-<li><p>hatch-&lt;breeds&gt;: <code>hatch()</code> from <code>NetLogoR</code>. The new hatched turtles cannot directly run functions. The turtles agentset containing the parent turtles and the new hatched turtles needs to be assigned to an object, then the new hatched turtles must be identified within that agentset to run some functions.</p></li>
-<li><p>heading: use <code>of()</code> from <code>NetLogoR</code> to access turtles’ headings.</p></li>
+<li><p>hatch: <code>hatch()</code> from <code>NetLogoR</code>. The new
+hatched turtles cannot directly run functions. The turtles agentset
+containing the parent turtles and the new hatched turtles needs to be
+assigned to an object, then the new hatched turtles must be identified
+within that agentset to run some functions.</p></li>
+<li><p>hatch-&lt;breeds&gt;: <code>hatch()</code> from
+<code>NetLogoR</code>. The new hatched turtles cannot directly run
+functions. The turtles agentset containing the parent turtles and the
+new hatched turtles needs to be assigned to an object, then the new
+hatched turtles must be identified within that agentset to run some
+functions.</p></li>
+<li><p>heading: use <code>of()</code> from <code>NetLogoR</code> to
+access turtles’ headings.</p></li>
 <li><p>hidden?: not implemented.</p></li>
 <li><p>hide-link: links not implemented.</p></li>
 <li><p>hide-turtle (ht): not implemented.</p></li>
-<li><p>histogram: <code>hist()</code>. Use <code>unlist()</code> to transform a list into a vector prior using <code>hist()</code>. Only numeric values can be passed on to <code>hist()</code> (e.g., strings cannot be used).</p></li>
+<li><p>histogram: <code>hist()</code>. Use <code>unlist()</code> to
+transform a list into a vector prior using <code>hist()</code>. Only
+numeric values can be passed on to <code>hist()</code> (e.g., strings
+cannot be used).</p></li>
 <li><p>home: <code>home()</code> from <code>NetLogoR</code>.</p></li>
 <li><p>hsb: <code>col2rgb(hsv())</code>.</p></li>
 <li><p>hubnet-broadcast: HubNet not implemented.</p></li>
@@ -301,13 +608,16 @@
 <h3>I</h3>
 <ul>
 <li><p>if: <code>if(){}</code>.</p></li>
-<li><p>ifelse: <code>ifelse()</code> or <code>if(){} else {}</code>.</p></li>
-<li><p>ifelse-value: <code>ifelse()</code> or <code>if(){} else {}</code>.</p></li>
+<li><p>ifelse: <code>ifelse()</code> or
+<code>if(){} else {}</code>.</p></li>
+<li><p>ifelse-value: <code>ifelse()</code> or
+<code>if(){} else {}</code>.</p></li>
 <li><p>import-drawing: not implemented.</p></li>
 <li><p>import-pcolors: not implemented.</p></li>
 <li><p>import-pcolors-rgb: not implemented.</p></li>
 <li><p>import-world: not implemented.</p></li>
-<li><p>in-cone: <code>inCone()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>in-cone: <code>inCone()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>in-&lt;breed&gt;-neighbor?: links not implemented.</p></li>
 <li><p>in-link-neighbor?: links not implemented.</p></li>
 <li><p>in-&lt;breed&gt;-neighbors: links not implemented.</p></li>
@@ -315,11 +625,16 @@
 <li><p>in-&lt;breed&gt;-from: links not implemented.</p></li>
 <li><p>in-link-from: links not implemented.</p></li>
 <li><p>__includes: not implemented.</p></li>
-<li><p>in-radius: <code>inRadius()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>inspect: <code>inspect()</code> from <code>NetLogoR</code> to inspect turtles; or <code>of()</code> from <code>NetLogoR</code> to obtain variables values for patches or turtles.</p></li>
+<li><p>in-radius: <code>inRadius()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>inspect: <code>inspect()</code> from <code>NetLogoR</code> to
+inspect turtles; or <code>of()</code> from <code>NetLogoR</code> to
+obtain variables values for patches or turtles.</p></li>
 <li><p>int: <code>trunc()</code>.</p></li>
-<li><p>is-agent?: <code>isNLclass()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>is-agentset?: <code>isNLclass()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>is-agent?: <code>isNLclass()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>is-agentset?: <code>isNLclass()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>is-boolean?: <code>is.logical()</code>.</p></li>
 <li><p>is-command-task?: not implemented.</p></li>
 <li><p>is-directed-link?: links not implemented.</p></li>
@@ -327,20 +642,28 @@
 <li><p>is-link-set?: links not implemented.</p></li>
 <li><p>is-list?: <code>is.list()</code>.</p></li>
 <li><p>is-number?: <code>is.numeric()</code>.</p></li>
-<li><p>is-patch?: <code>isNLclass()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>is-patch-set?: <code>isNLclass()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>is-patch?: <code>isNLclass()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>is-patch-set?: <code>isNLclass()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>is-reporter-task?: not implemented.</p></li>
 <li><p>is-string?: <code>is.character()</code>.</p></li>
-<li><p>is-turtle?: <code>isNLclass()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>is-turtle-set?: <code>isNLclass()</code> in <code>NetLogoR</code>.</p></li>
+<li><p>is-turtle?: <code>isNLclass()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>is-turtle-set?: <code>isNLclass()</code> in
+<code>NetLogoR</code>.</p></li>
 <li><p>is-undirected-link?: links not implemented.</p></li>
-<li><p>item: <code>nameList[[index]]</code> for lists; <code>substr(nameString, index, index)</code> for strings; <code>nameVector[index]</code> for vectors. Indices begin from 1, not 0 like in NetLogo.</p></li>
+<li><p>item: <code>nameList[[index]]</code> for lists;
+<code>substr(nameString, index, index)</code> for strings;
+<code>nameVector[index]</code> for vectors. Indices begin from 1, not 0
+like in NetLogo.</p></li>
 </ul>
 </div>
 <div id="j" class="section level3">
 <h3>J</h3>
 <ul>
-<li>jump: <code>fd(..., out = FALSE)</code> or <code>bk(..., out = FALSE)</code> from <code>NetLogoR</code>.</li>
+<li>jump: <code>fd(..., out = FALSE)</code> or
+<code>bk(..., out = FALSE)</code> from <code>NetLogoR</code>.</li>
 </ul>
 </div>
 <div id="l" class="section level3">
@@ -348,13 +671,20 @@
 <ul>
 <li><p>label: <code>text()</code> to add labels on plot.</p></li>
 <li><p>label-color: <code>text()</code> to add labels on plot.</p></li>
-<li><p>last: <code>nameList[[length(nameList)]]</code> or <code>tail(nameList, n = 1)</code> for lists; <code>substring(nameString, nchar(nameString))</code> for strings; <code>nameVector[length(nameVector)]</code> or <code>tail(nameVector, n = 1)</code> for vectors.</p></li>
-<li><p>layout-circle: <code>layoutCircle()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>last: <code>nameList[[length(nameList)]]</code> or
+<code>tail(nameList, n = 1)</code> for lists;
+<code>substring(nameString, nchar(nameString))</code> for strings;
+<code>nameVector[length(nameVector)]</code> or
+<code>tail(nameVector, n = 1)</code> for vectors.</p></li>
+<li><p>layout-circle: <code>layoutCircle()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>layout-radial: links not implemented.</p></li>
 <li><p>layout-spring: links not implemented.</p></li>
 <li><p>layout-tutte: links not implemented.</p></li>
-<li><p>left (lt): <code>left()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>length: <code>length()</code> for lists and vectors; <code>nchar()</code> for strings.</p></li>
+<li><p>left (lt): <code>left()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>length: <code>length()</code> for lists and vectors;
+<code>nchar()</code> for strings.</p></li>
 <li><p>let: not implemented.</p></li>
 <li><p>link: links not implemented.</p></li>
 <li><p>link-heading: links not implemented.</p></li>
@@ -365,35 +695,59 @@
 <li><p>links-own: links not implemented.</p></li>
 <li><p>list: <code>list()</code>.</p></li>
 <li><p>ln: <code>log()</code>.</p></li>
-<li><p>log: <code>log2()</code>, <code>log10()</code> or <code>log(..., base)</code>.</p></li>
+<li><p>log: <code>log2()</code>, <code>log10()</code> or
+<code>log(..., base)</code>.</p></li>
 <li><p>loop: <code>repeat{}</code>.</p></li>
-<li><p>lput: <code>c(nameList, newElement)</code> for lists and vectors.</p></li>
+<li><p>lput: <code>c(nameList, newElement)</code> for lists and
+vectors.</p></li>
 </ul>
 </div>
 <div id="m" class="section level3">
 <h3>M</h3>
 <ul>
-<li><p>map: <code>for(i in 1:length(nameList)) {task(nameList[[i]])}</code>, <code>lapply()</code> for single list or <code>mapply()</code> for multiple lists. Functions are the same when used with vectors, except for the for-loop : <code>for(i in 1:length(nameVector)) {task(nameVector[i])}</code>.</p></li>
-<li><p>max: <code>max()</code>. Use <code>unlist()</code> to transform a list into a vector prior using <code>max()</code>.</p></li>
-<li><p>max-n-of: <code>maxNof()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>max-one-of: <code>maxOneOf()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>max-pxcor: <code>maxPxcor()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>max-pycor: <code>maxPycor()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>mean: <code>mean()</code>. Use <code>unlist()</code> to transform a list into a vector prior using <code>mean()</code>.</p></li>
-<li><p>median: <code>median()</code>. Use <code>unlist()</code> to transform a list into a vector prior using <code>median()</code>.</p></li>
-<li><p>member?: <code>pExist()</code> or <code>tExist()</code>, both from <code>NetLogoR</code> to test patches or turtles existence in an agentset. <code>element %in% nameList</code> for lists and vectors; <code>grepl()</code> for strings.</p></li>
-<li><p>min: <code>min()</code>. Use <code>unlist()</code> to transform a list into a vector prior using <code>min()</code>.</p></li>
-<li><p>min-n-of: <code>minNof()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>min-one-of: <code>minOneOf()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>min-pxcor: <code>minPxcor()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>min-pycor: <code>minPycor()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>map:
+<code>for(i in 1:length(nameList)) {task(nameList[[i]])}</code>,
+<code>lapply()</code> for single list or <code>mapply()</code> for
+multiple lists. Functions are the same when used with vectors, except
+for the for-loop :
+<code>for(i in 1:length(nameVector)) {task(nameVector[i])}</code>.</p></li>
+<li><p>max: <code>max()</code>. Use <code>unlist()</code> to transform a
+list into a vector prior using <code>max()</code>.</p></li>
+<li><p>max-n-of: <code>maxNof()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>max-one-of: <code>maxOneOf()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>max-pxcor: <code>maxPxcor()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>max-pycor: <code>maxPycor()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>mean: <code>mean()</code>. Use <code>unlist()</code> to transform
+a list into a vector prior using <code>mean()</code>.</p></li>
+<li><p>median: <code>median()</code>. Use <code>unlist()</code> to
+transform a list into a vector prior using
+<code>median()</code>.</p></li>
+<li><p>member?: <code>pExist()</code> or <code>tExist()</code>, both
+from <code>NetLogoR</code> to test patches or turtles existence in an
+agentset. <code>element %in% nameList</code> for lists and vectors;
+<code>grepl()</code> for strings.</p></li>
+<li><p>min: <code>min()</code>. Use <code>unlist()</code> to transform a
+list into a vector prior using <code>min()</code>.</p></li>
+<li><p>min-n-of: <code>minNof()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>min-one-of: <code>minOneOf()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>min-pxcor: <code>minPxcor()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>min-pycor: <code>minPycor()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>mod: <code>%%</code>.</p></li>
 <li><p>modes: <code>mlv()</code> from modeest.</p></li>
 <li><p>mouse-down?: not implemented.</p></li>
 <li><p>mouse-inside?: not implemented.</p></li>
 <li><p>mouse-xcor: not implemented.</p></li>
 <li><p>mouse-ycor:not implemented.</p></li>
-<li><p>move-to: <code>moveTo()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>move-to: <code>moveTo()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>movie-cancel: see package animation.</p></li>
 <li><p>movie-close: see package animation.</p></li>
 <li><p>movie-grab-view: see package animation.</p></li>
@@ -414,9 +768,12 @@
 <h3>N</h3>
 <ul>
 <li><p>n-of: <code>nOf()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>n-values: <code>rep()</code> or <code>(for i in 1:n){}</code>.</p></li>
-<li><p>neighbors: <code>neighbors()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>neighbors4: <code>neighbors()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>n-values: <code>rep()</code> or
+<code>(for i in 1:n){}</code>.</p></li>
+<li><p>neighbors: <code>neighbors()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>neighbors4: <code>neighbors()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>&lt;breed&gt;-neighbors: links not implemented.</p></li>
 <li><p>link-neighbors: links not implemented.</p></li>
 <li><p>&lt;breed&gt;-neighbor?: links not implemented.</p></li>
@@ -424,20 +781,27 @@
 <li><p>netlogo-applet?: not implemented.</p></li>
 <li><p>netlogo-version: <code>R.Version()</code>.</p></li>
 <li><p>netlogo-web?: not implemented.</p></li>
-<li><p>new-seed: <code>rm(.Random.seed)</code> removes the old seed and automatically select a random new one.</p></li>
+<li><p>new-seed: <code>rm(.Random.seed)</code> removes the old seed and
+automatically select a random new one.</p></li>
 <li><p>no-display: not implemented.</p></li>
 <li><p>nobody: not implemented.</p></li>
 <li><p>no-links: links not implemented.</p></li>
-<li><p>no-patches: <code>noPatches()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>no-patches: <code>noPatches()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>not: <code>!</code>.</p></li>
-<li><p>no-turtles: <code>noTurtles()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>no-turtles: <code>noTurtles()</code> from
+<code>NetLogoR</code>.</p></li>
 </ul>
 </div>
 <div id="o" class="section level3">
 <h3>O</h3>
 <ul>
-<li><p>of: <code>of()</code> from <code>NetLogoR</code>. <code>world[pxcor, pycor]</code> can also be used to report the value(s) of a single patch.</p></li>
-<li><p>one-of: <code>oneOf()</code> from <code>NetLogoR</code> to select agent in an agentset; <code>sample()</code> for lists and vectors.</p></li>
+<li><p>of: <code>of()</code> from <code>NetLogoR</code>.
+<code>world[pxcor, pycor]</code> can also be used to report the value(s)
+of a single patch.</p></li>
+<li><p>one-of: <code>oneOf()</code> from <code>NetLogoR</code> to select
+agent in an agentset; <code>sample()</code> for lists and
+vectors.</p></li>
 <li><p>or: <code>|</code>.</p></li>
 <li><p>other: <code>other()</code> from <code>NetLogoR</code>.</p></li>
 <li><p>other-end: links not implemented.</p></li>
@@ -457,28 +821,46 @@
 <h3>P</h3>
 <ul>
 <li><p>patch: <code>patch()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>patch-ahead: <code>patchAhead()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>patch-at: <code>patchAt()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>patch-at-heading-and-distance: <code>patchDistDir()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>patch-here: <code>patchHere()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>patch-left-and-ahead: <code>patchLeft()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>patch-right-and-ahead: <code>patchRight()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>patch-set: <code>patchSet()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>patch-ahead: <code>patchAhead()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>patch-at: <code>patchAt()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>patch-at-heading-and-distance: <code>patchDistDir()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>patch-here: <code>patchHere()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>patch-left-and-ahead: <code>patchLeft()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>patch-right-and-ahead: <code>patchRight()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>patch-set: <code>patchSet()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>patch-size: not implemented.</p></li>
-<li><p>patches: <code>patches()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>patches-own: a new world must be created with <code>createWorld()</code> to create a new patch variable. This new world can then be stacked with others using <code>stackWorlds()</code> to create a single object with the different patch values.</p></li>
+<li><p>patches: <code>patches()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>patches-own: a new world must be created with
+<code>createWorld()</code> to create a new patch variable. This new
+world can then be stacked with others using <code>stackWorlds()</code>
+to create a single object with the different patch values.</p></li>
 <li><p>pcolor: not implemented.</p></li>
-<li><p>pen-down (pd): SpatialLines objects from sp should be derived from the turtles object to plot their trajectories, by using their current and previous coordiantes.</p></li>
+<li><p>pen-down (pd): SpatialLines objects from sp should be derived
+from the turtles object to plot their trajectories, by using their
+current and previous coordiantes.</p></li>
 <li><p>pen-erase (pe): not implemented.</p></li>
 <li><p>pen-up (pu): not implemented.</p></li>
 <li><p>pen-mode: not implemented.</p></li>
 <li><p>pen-size: <code>plot(..., lwd = x)</code>.</p></li>
 <li><p>plabel: <code>text()</code> to add labels on plot.</p></li>
 <li><p>plabel-color: <code>text()</code> to add labels on plot.</p></li>
-<li><p>plot: <code>plot()</code> or <code>Plot()</code> from <code>quickPlot</code></p></li>
-<li><p>plot-name: <code>dev.cur()</code> returns the name and number of the active device/window where to plot. <code>plot(..., main = x)</code> gives a title to the plot.</p></li>
+<li><p>plot: <code>plot()</code> or <code>Plot()</code> from
+<code>quickPlot</code></p></li>
+<li><p>plot-name: <code>dev.cur()</code> returns the name and number of
+the active device/window where to plot. <code>plot(..., main = x)</code>
+gives a title to the plot.</p></li>
 <li><p>plot-pen-exists?: not implemented.</p></li>
-<li><p>plot-pen-down: SpatialLines objects from sp should be derived from the turtles object to plot their trajectories, by using their current and previous coordiantes.</p></li>
+<li><p>plot-pen-down: SpatialLines objects from sp should be derived
+from the turtles object to plot their trajectories, by using their
+current and previous coordiantes.</p></li>
 <li><p>plot-pen-up: not implemented.</p></li>
 <li><p>plot-pen-reset: not implemented.</p></li>
 <li><p>plotxy: not implemented.</p></li>
@@ -486,11 +868,15 @@
 <li><p>plot-x-max: not implemented.</p></li>
 <li><p>plot-y-min: not implemented.</p></li>
 <li><p>plot-y-max: not implemented.</p></li>
-<li><p>position: <code>match()</code> for lists and vectors; <code>regexpr()[1]</code> or <code>StrPos()</code> from DescTools for strings.</p></li>
+<li><p>position: <code>match()</code> for lists and vectors;
+<code>regexpr()[1]</code> or <code>StrPos()</code> from DescTools for
+strings.</p></li>
 <li><p>precision: <code>round()</code>.</p></li>
 <li><p>print: <code>print()</code>.</p></li>
-<li><p>pxcor: use <code>patch()</code> from <code>NetLogoR</code> to access patches’ coordinates at any [x, y] locations.</p></li>
-<li><p>pycor: use <code>patch()</code> from <code>NetLogoR</code> to access patches’ coordinates at any [x, y] locations.</p></li>
+<li><p>pxcor: use <code>patch()</code> from <code>NetLogoR</code> to
+access patches’ coordinates at any [x, y] locations.</p></li>
+<li><p>pycor: use <code>patch()</code> from <code>NetLogoR</code> to
+access patches’ coordinates at any [x, y] locations.</p></li>
 </ul>
 </div>
 <div id="r" class="section level3">
@@ -502,29 +888,53 @@
 <li><p>random-gamma: <code>rgamma()</code>.</p></li>
 <li><p>random-normal: <code>rnorm()</code>.</p></li>
 <li><p>random-poisson: <code>rpois()</code>.</p></li>
-<li><p>random-pxcor: <code>randomPxcor()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>random-pycor: <code>randomPycor()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>random-pxcor: <code>randomPxcor()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>random-pycor: <code>randomPycor()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>random-seed: <code>set.seed()</code>.</p></li>
-<li><p>random-xcor: <code>randomXcor()</code> from <code>NetLogoR</code>. Use <code>randomXYcor()</code> from <code>NetLogoR</code> to generate random xcor and ycor at the same time.</p></li>
-<li><p>random-ycor: <code>randomYcor(</code>) from <code>NetLogoR</code>. Use <code>randomXYcor()</code> from <code>NetLogoR</code> to generate random xcor and ycor at the same time.</p></li>
+<li><p>random-xcor: <code>randomXcor()</code> from
+<code>NetLogoR</code>. Use <code>randomXYcor()</code> from
+<code>NetLogoR</code> to generate random xcor and ycor at the same
+time.</p></li>
+<li><p>random-ycor: <code>randomYcor(</code>) from
+<code>NetLogoR</code>. Use <code>randomXYcor()</code> from
+<code>NetLogoR</code> to generate random xcor and ycor at the same
+time.</p></li>
 <li><p>read-from-string: <code>get()</code>.</p></li>
 <li><p>reduce: <code>Reduce()</code>.</p></li>
 <li><p>remainder: <code>%/%</code>.</p></li>
-<li><p>remove: <code>nameList[nameList != element]</code> for list and vectors; <code>gsub(element, &quot;&quot;, nameString)</code> for strings.</p></li>
-<li><p>remove-duplicate: <code>unique()</code> for lists and vectors.</p></li>
-<li><p>remove-item: <code>nameList[-index]</code> for list and vectors; <code>gsub(substr(nameString, index, index), &quot;&quot;, nameString)</code> for strings.</p></li>
+<li><p>remove: <code>nameList[nameList != element]</code> for list and
+vectors; <code>gsub(element, &quot;&quot;, nameString)</code> for
+strings.</p></li>
+<li><p>remove-duplicate: <code>unique()</code> for lists and
+vectors.</p></li>
+<li><p>remove-item: <code>nameList[-index]</code> for list and vectors;
+<code>gsub(substr(nameString, index, index), &quot;&quot;, nameString)</code> for
+strings.</p></li>
 <li><p>repeat: <code>for(i in 1:n){task}</code>.</p></li>
-<li><p>replace-item: <code>nameList[[index]] &lt;- value</code> for lists; <code>gsub(substr(nameString, index, index), characters, nameString)</code> for strings; <code>nameVector[index] &lt;- value</code> for vectors.</p></li>
+<li><p>replace-item: <code>nameList[[index]] &lt;- value</code> for
+lists;
+<code>gsub(substr(nameString, index, index), characters, nameString)</code>
+for strings; <code>nameVector[index] &lt;- value</code> for
+vectors.</p></li>
 <li><p>report: <code>return()</code>.</p></li>
 <li><p>reset-perspective (rp): not implemented.</p></li>
 <li><p>reset-ticks: not implemented.</p></li>
 <li><p>reset-timer: not implemented.</p></li>
-<li><p>resize-world: create a new world with <code>createWorld()</code> and assign it to the object name of the previous world to overwrite it. Patches values from the previous world are then lost. To kill all the turtles, see the <code>NetLogoR</code> Dictionary entry for clear-turtles.</p></li>
-<li><p>reverse: <code>rev()</code> for lists and vectors; <code>paste(rev(unlist(strsplit(nameString, split=&quot;&quot;))), collapse=&quot;&quot;))</code> for strings.</p></li>
+<li><p>resize-world: create a new world with <code>createWorld()</code>
+and assign it to the object name of the previous world to overwrite it.
+Patches values from the previous world are then lost. To kill all the
+turtles, see the <code>NetLogoR</code> Dictionary entry for
+clear-turtles.</p></li>
+<li><p>reverse: <code>rev()</code> for lists and vectors;
+<code>paste(rev(unlist(strsplit(nameString, split=&quot;&quot;))), collapse=&quot;&quot;))</code>
+for strings.</p></li>
 <li><p>rgb: <code>rgb2hsv()</code>.</p></li>
 <li><p>ride: not implemented.</p></li>
 <li><p>ride-me: not implemented.</p></li>
-<li><p>right (rt): <code>right()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>right (rt): <code>right()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>round: <code>round()</code>.</p></li>
 <li><p>run: not implemented.</p></li>
 <li><p>runresult: not implemented.</p></li>
@@ -533,7 +943,9 @@
 <div id="s" class="section level3">
 <h3>S</h3>
 <ul>
-<li><p>scale-color: <code>gray.colors</code> or <code>grey.colors</code>, <code>rainbow()</code> or see <code>RColorBrewer</code> package.</p></li>
+<li><p>scale-color: <code>gray.colors</code> or
+<code>grey.colors</code>, <code>rainbow()</code> or see
+<code>RColorBrewer</code> package.</p></li>
 <li><p>self: not implemented.</p></li>
 <li><p>; (semicolon): <code>#</code>.</p></li>
 <li><p>sentence (se): <code>c()</code>.</p></li>
@@ -542,15 +954,19 @@
 <li><p>set-current-plot: <code>dev.set()</code>.</p></li>
 <li><p>set-current-plot-pen: not implemented.</p></li>
 <li><p>set-default-shape: not implemented.</p></li>
-<li><p>set-histogram-num-bars: <code>hist(..., breaks = x)</code>.</p></li>
+<li><p>set-histogram-num-bars:
+<code>hist(..., breaks = x)</code>.</p></li>
 <li><p>__set-line-thickness: not implemented.</p></li>
 <li><p>set-patch-size: not implemented.</p></li>
-<li><p>set-plot-pen-color: <code>plot(..., col = x)</code> or <code>Plot(..., cols = x)</code> from <code>quickPlot</code>.</p></li>
+<li><p>set-plot-pen-color: <code>plot(..., col = x)</code> or
+<code>Plot(..., cols = x)</code> from <code>quickPlot</code>.</p></li>
 <li><p>set-plot-pen-interval: not implemented.</p></li>
 <li><p>set-plot-pen-mode: not implemented.</p></li>
 <li><p>setup-plots: not implemented.</p></li>
-<li><p>set-plot-x-range: <code>plot(..., xlim = c(x, x))</code>.</p></li>
-<li><p>set-plot-y-range: <code>plot(..., ylim = c(x, x))</code>.</p></li>
+<li><p>set-plot-x-range:
+<code>plot(..., xlim = c(x, x))</code>.</p></li>
+<li><p>set-plot-y-range:
+<code>plot(..., ylim = c(x, x))</code>.</p></li>
 <li><p>setxy: <code>setXY()</code> from <code>NetLogoR</code>.</p></li>
 <li><p>shade-of?: not implemented.</p></li>
 <li><p>shape: <code>plot(..., pch = x)</code>.</p></li>
@@ -559,31 +975,55 @@
 <li><p>show-turtle (st): not implemented.</p></li>
 <li><p>show-link: links not implemented.</p></li>
 <li><p>shuffle: <code>sample()</code>.</p></li>
-<li><p>sin: <code>sin()</code> takes an input value in radians. Use <code>rad()</code> from <code>CircStats</code> to convert the input from degrees to radians.</p></li>
-<li><p>sort: <code>sort()</code>. Use <code>unlist()</code> to transform a list into a vector prior using <code>sort()</code>.</p></li>
-<li><p>sort-by: <code>sort(..., decreasing = x)</code>. Use <code>unlist()</code> to transform a list into a vector prior using <code>sort()</code>.</p></li>
-<li><p>sort-on: <code>sortOn()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>sprout:<code>sprout()</code> from <code>NetLogoR</code>. The new sprouted turtles cannot directly run functions. The turtles agentset containing the parent turtles and the new sprouted turtles needs to be assigned to an object, then the new sprouted turtles must be identified within the agentset to run some functions.</p></li>
-<li><p>sprout-&lt;breeds&gt;: <code>sprout()</code> from <code>NetLogoR</code>. The new sprouted turtles cannot directly run functions. The turtles agentset containing the parent turtles and the new sprouted turtles needs to be assigned to an object, then the new sprouted turtles must be identified within the agentset to run some functions.</p></li>
+<li><p>sin: <code>sin()</code> takes an input value in radians. Use
+<code>rad()</code> from <code>CircStats</code> to convert the input from
+degrees to radians.</p></li>
+<li><p>sort: <code>sort()</code>. Use <code>unlist()</code> to transform
+a list into a vector prior using <code>sort()</code>.</p></li>
+<li><p>sort-by: <code>sort(..., decreasing = x)</code>. Use
+<code>unlist()</code> to transform a list into a vector prior using
+<code>sort()</code>.</p></li>
+<li><p>sort-on: <code>sortOn()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>sprout:<code>sprout()</code> from <code>NetLogoR</code>. The new
+sprouted turtles cannot directly run functions. The turtles agentset
+containing the parent turtles and the new sprouted turtles needs to be
+assigned to an object, then the new sprouted turtles must be identified
+within the agentset to run some functions.</p></li>
+<li><p>sprout-&lt;breeds&gt;: <code>sprout()</code> from
+<code>NetLogoR</code>. The new sprouted turtles cannot directly run
+functions. The turtles agentset containing the parent turtles and the
+new sprouted turtles needs to be assigned to an object, then the new
+sprouted turtles must be identified within the agentset to run some
+functions.</p></li>
 <li><p>sqrt: <code>sqrt()</code>.</p></li>
-<li><p>stamp: <code>points()</code> or <code>Plot(..., addTo = x)</code> from <code>quickPlot</code>.</p></li>
+<li><p>stamp: <code>points()</code> or <code>Plot(..., addTo = x)</code>
+from <code>quickPlot</code>.</p></li>
 <li><p>stamp-erase: not implemented.</p></li>
-<li><p>standard-deviation: <code>sd()</code>. Use <code>unlist()</code> to transform a list into a vector prior using <code>sd()</code>.</p></li>
+<li><p>standard-deviation: <code>sd()</code>. Use <code>unlist()</code>
+to transform a list into a vector prior using
+<code>sd()</code>.</p></li>
 <li><p>startup: not implemented.</p></li>
 <li><p>stop: <code>stop()</code>.</p></li>
 <li><p>stop-inspecting: not implemented.</p></li>
 <li><p>stop-inspecting-dead-agents: not implemented.</p></li>
 <li><p>subject: not implemented.</p></li>
-<li><p>sublist: <code>nameList[index1:index2]</code> for lists and vectors. Indices begin from 1, not 0 like in NetLogo.</p></li>
-<li><p>substring: <code>substr(nameString, index1, index2)</code>. Indices begin from 1, not 0 like in NetLogo.</p></li>
-<li><p>subtract-headings: <code>subHeadings()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>sum: <code>sum()</code>. Use <code>unlist()</code> to transform a list into a vector prior using <code>sum()</code>.</p></li>
+<li><p>sublist: <code>nameList[index1:index2]</code> for lists and
+vectors. Indices begin from 1, not 0 like in NetLogo.</p></li>
+<li><p>substring: <code>substr(nameString, index1, index2)</code>.
+Indices begin from 1, not 0 like in NetLogo.</p></li>
+<li><p>subtract-headings: <code>subHeadings()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>sum: <code>sum()</code>. Use <code>unlist()</code> to transform a
+list into a vector prior using <code>sum()</code>.</p></li>
 </ul>
 </div>
 <div id="t" class="section level3">
 <h3>T</h3>
 <ul>
-<li><p>tan: <code>tan()</code> takes an input value in radians. Use <code>rad()</code> from <code>CircStats</code> to convert the input from degrees to radians.</p></li>
+<li><p>tan: <code>tan()</code> takes an input value in radians. Use
+<code>rad()</code> from <code>CircStats</code> to convert the input from
+degrees to radians.</p></li>
 <li><p>task: not implemented.</p></li>
 <li><p>thickness: links not implemented.</p></li>
 <li><p>tick: not implemented.</p></li>
@@ -594,19 +1034,32 @@
 <li><p>timer: not implemented.</p></li>
 <li><p>to: <code>function(){}</code>.</p></li>
 <li><p>to-report: <code>function(){}</code>.</p></li>
-<li><p>towards: <code>towards()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>towardsxy: <code>towards()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>turtle: <code>turtle()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>turtle-set: <code>turtleSet()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>turtles: not implemented. Calling the name of the turtles agentset reports all the turtles in it.</p></li>
-<li><p>turtles-at: <code>turtlesAt()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>&lt;breeds&gt;-at: <code>turtlesAt()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>turtles-here: <code>turtlesOn()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>&lt;breeds&gt;-here: <code>turtlesOn()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>turtles-on: <code>turtlesOn()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>&lt;breeds&gt;-on: <code>turtlesOn()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>turtles-own: <code>turtlesOwn()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>&lt;breeds&gt;-own: <code>turtlesOwn()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>towards: <code>towards()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>towardsxy: <code>towards()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>turtle: <code>turtle()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>turtle-set: <code>turtleSet()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>turtles: not implemented. Calling the name of the turtles
+agentset reports all the turtles in it.</p></li>
+<li><p>turtles-at: <code>turtlesAt()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>&lt;breeds&gt;-at: <code>turtlesAt()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>turtles-here: <code>turtlesOn()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>&lt;breeds&gt;-here: <code>turtlesOn()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>turtles-on: <code>turtlesOn()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>&lt;breeds&gt;-on: <code>turtlesOn()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>turtles-own: <code>turtlesOwn()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>&lt;breeds&gt;-own: <code>turtlesOwn()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>type: <code>print(paste())</code>.</p></li>
 </ul>
 </div>
@@ -616,8 +1069,10 @@
 <li><p>undirected-link-breed: links not implemented.</p></li>
 <li><p>untie: links not implemented.</p></li>
 <li><p>update-plots: not implemented.</p></li>
-<li><p>uphill: <code>uphill()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>uphill4: <code>uphill()</code> from <code>NetLogoR</code>.</p></li>
+<li><p>uphill: <code>uphill()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>uphill4: <code>uphill()</code> from
+<code>NetLogoR</code>.</p></li>
 <li><p>user-directory: not implemented.</p></li>
 <li><p>user-file: not implemented.</p></li>
 <li><p>user-new-file: not implemented.</p></li>
@@ -630,7 +1085,8 @@
 <div id="v" class="section level3">
 <h3>V</h3>
 <ul>
-<li>variance: <code>var()</code>. Use <code>unlist()</code> to transform a list into a vector prior using <code>var()</code>.</li>
+<li>variance: <code>var()</code>. Use <code>unlist()</code> to transform
+a list into a vector prior using <code>var()</code>.</li>
 </ul>
 </div>
 <div id="w" class="section level3">
@@ -640,17 +1096,26 @@
 <li><p>watch: not implemented.</p></li>
 <li><p>watch-me: not implemented.</p></li>
 <li><p>while: <code>while(){}</code>.</p></li>
-<li><p>who: use <code>of()</code> from <code>NetLogoR</code> to access turtles’ who numbers.</p></li>
+<li><p>who: use <code>of()</code> from <code>NetLogoR</code> to access
+turtles’ who numbers.</p></li>
 <li><p>with: <code>NLwith()</code> from <code>NetLogoR</code>.</p></li>
 <li><p>&lt;breed&gt;-with: links not implemented.</p></li>
 <li><p>link-with: links not implemented.</p></li>
-<li><p>with-max: <code>withMax()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>with-min: <code>withMin()</code> from <code>NetLogoR</code>.</p></li>
-<li><p>with-local-randomness: save the current seed and RNG with <code>oldSeed &lt;- get(&quot;.Random.seed&quot;, envir = .GlobalEnv)</code> and <code>oldRNGkind &lt;- RNGkind()</code>, and reassign it later with <code>do.call(&quot;RNGkind&quot;, as.list(oldRNGkind))</code> and <code>assign(&quot;.Random.seed&quot;, oldSeed, envir = .GlobalEnv)</code>.</p></li>
+<li><p>with-max: <code>withMax()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>with-min: <code>withMin()</code> from
+<code>NetLogoR</code>.</p></li>
+<li><p>with-local-randomness: save the current seed and RNG with
+<code>oldSeed &lt;- get(&quot;.Random.seed&quot;, envir = .GlobalEnv)</code> and
+<code>oldRNGkind &lt;- RNGkind()</code>, and reassign it later with
+<code>do.call(&quot;RNGkind&quot;, as.list(oldRNGkind))</code> and
+<code>assign(&quot;.Random.seed&quot;, oldSeed, envir = .GlobalEnv)</code>.</p></li>
 <li><p>without-interruption: not implemented.</p></li>
 <li><p>word: <code>paste()</code>.</p></li>
-<li><p>world-width: <code>worldWidth()</code> in <code>NetLogoR</code>.</p></li>
-<li><p>world-height: <code>worldHeight()</code> in <code>NetLogoR</code>.</p></li>
+<li><p>world-width: <code>worldWidth()</code> in
+<code>NetLogoR</code>.</p></li>
+<li><p>world-height: <code>worldHeight()</code> in
+<code>NetLogoR</code>.</p></li>
 <li><p>wrap-color: not implemented.</p></li>
 <li><p>write: <code>print(paste())</code>.</p></li>
 </ul>
@@ -658,14 +1123,16 @@
 <div id="x" class="section level3">
 <h3>X</h3>
 <ul>
-<li><p>xcor: use <code>of()</code> from <code>NetLogoR</code> to access turtles’ xcor coordinates.</p></li>
+<li><p>xcor: use <code>of()</code> from <code>NetLogoR</code> to access
+turtles’ xcor coordinates.</p></li>
 <li><p>xor: <code>xor()</code>.</p></li>
 </ul>
 </div>
 <div id="y" class="section level3">
 <h3>Y</h3>
 <ul>
-<li>ycor: use <code>of()</code> from <code>NetLogoR</code> to access turtles’ ycor coordinates.</li>
+<li>ycor: use <code>of()</code> from <code>NetLogoR</code> to access
+turtles’ ycor coordinates.</li>
 </ul>
 </div>
 <div id="section" class="section level3">
