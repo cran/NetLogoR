@@ -30,27 +30,27 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -61,58 +61,57 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -365,9 +364,9 @@ output</a></li>
 </ul>
 </div>
 
-<p>This document is based on the <a href="https://ccl.northwestern.edu/netlogo/docs/programming.html">NetLogo
-Programming Guide</a>. It describes how the NetLogo’s programming
-language is translated in the R language.</p>
+<p>This document is based on the <a href="https://docs.netlogo.org/programming.html">NetLogo Programming
+Guide</a>. It describes how the NetLogo’s programming language is
+translated in the R language.</p>
 <div id="netlogor-features" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> <code>NetLogoR</code>
 features</h1>
@@ -428,14 +427,14 @@ functions into one. The rules to do so are imposed by the R
 language.</p>
 <p>R functions take arguments which are R objects or values. Arguments
 are used to carry out actions and compute results.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a world according to a given extent</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>w1 <span class="ot">&lt;-</span> <span class="fu">createWorld</span>(<span class="at">minPxcor =</span> <span class="dv">0</span>, <span class="at">maxPxcor =</span> <span class="dv">10</span>, <span class="at">minPycor =</span> <span class="dv">0</span>, <span class="at">maxPycor =</span> <span class="dv">10</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Report the distance between the patch [pxcor = 0, pycor = 0] and the patch [pxcor = 1, pycor = 1]</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>pDist <span class="ot">&lt;-</span> <span class="fu">NLdist</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">agents =</span> <span class="fu">cbind</span>(<span class="at">pxcor =</span> <span class="dv">0</span>, <span class="at">pycor =</span> <span class="dv">0</span>),</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">agents2 =</span> <span class="fu">cbind</span>(<span class="at">pxcor =</span> <span class="dv">1</span>, <span class="at">pycor =</span> <span class="dv">1</span>), <span class="at">world =</span> w1, <span class="at">torus =</span> <span class="cn">TRUE</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Create a world according to a given extent</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>w1 <span class="ot">&lt;-</span> <span class="fu">createWorld</span>(<span class="at">minPxcor =</span> <span class="dv">0</span>, <span class="at">maxPxcor =</span> <span class="dv">10</span>, <span class="at">minPycor =</span> <span class="dv">0</span>, <span class="at">maxPycor =</span> <span class="dv">10</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># Report the distance between the patch [pxcor = 0, pycor = 0] and the patch [pxcor = 1, pycor = 1]</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>pDist <span class="ot">&lt;-</span> <span class="fu">NLdist</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>  <span class="at">agents =</span> <span class="fu">cbind</span>(<span class="at">pxcor =</span> <span class="dv">0</span>, <span class="at">pycor =</span> <span class="dv">0</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>  <span class="at">agents2 =</span> <span class="fu">cbind</span>(<span class="at">pxcor =</span> <span class="dv">1</span>, <span class="at">pycor =</span> <span class="dv">1</span>), <span class="at">world =</span> w1, <span class="at">torus =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>)</span></code></pre></div>
 <p>In <code>NetLogoR</code>, the function arguments indicate which world
 and/or agents (<em>i.e.</em>, patches and/or turtles) are involved in
 the function. For example, in the <code>NLdist</code> function, the
@@ -451,11 +450,11 @@ objects, they do not directly modify the ones given as arguments. For
 example, when moving turtles around using the <code>fd</code> function,
 the output of the function (<em>i.e.</em>, the turtles with new
 coordinates) needs to be re-assigned to the turtles object.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create 10 turtles in the world w1</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">createTurtles</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">world =</span> w1)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Move all the turtles by a distance of 1</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">fd</span>(<span class="at">world =</span> w1, <span class="at">turtles =</span> t1, <span class="at">dist =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Create 10 turtles in the world w1</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">createTurtles</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">world =</span> w1)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co"># Move all the turtles by a distance of 1</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">fd</span>(<span class="at">world =</span> w1, <span class="at">turtles =</span> t1, <span class="at">dist =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>In NetLogo, pressing a button runs some code. To perform the button
 action in <code>NetLogoR</code>, the code must be sent to the R console
 to be executed. The code can be sent directly by the observer or by a
@@ -483,20 +482,20 @@ same name as they are not stored in the same object.</p>
 <p>To create a new patch variable, you create a <code>worldMatrix</code>
 and assign values. The name of the object to which the world is assigned
 is treated as the name of the patch variable.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For all patches, assign a random value between 0 and 1</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pQuality <span class="ot">&lt;-</span> <span class="fu">createWorld</span>(<span class="at">minPxcor =</span> <span class="dv">0</span>, <span class="at">maxPxcor =</span> <span class="dv">9</span>, <span class="at">minPycor =</span> <span class="dv">0</span>, <span class="at">maxPycor =</span> <span class="dv">9</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># For all patches, assign a random value between 0 and 1</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>pQuality <span class="ot">&lt;-</span> <span class="fu">createWorld</span>(<span class="at">minPxcor =</span> <span class="dv">0</span>, <span class="at">maxPxcor =</span> <span class="dv">9</span>, <span class="at">minPycor =</span> <span class="dv">0</span>, <span class="at">maxPycor =</span> <span class="dv">9</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>                        <span class="at">data =</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>))</span></code></pre></div>
 <p>Several turtle variables built-in in NetLogo are created at the same
 time when creating a turtle object in <code>NetLogoR</code>:
 <code>xcor</code>, <code>ycor</code>, <code>who</code>,
 <code>heading</code>, <code>prevX</code>, <code>prevY</code>,
 <code>breed</code>, and <code>color</code>. New turtle variables can be
 created:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now each turtle in t1 has a &quot;sex&quot; variable</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">turtlesOwn</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">turtles =</span> t1, <span class="at">tVar =</span> <span class="st">&quot;sex&quot;</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">tVal =</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Now each turtle in t1 has a &quot;sex&quot; variable</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> <span class="fu">turtlesOwn</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="at">turtles =</span> t1, <span class="at">tVar =</span> <span class="st">&quot;sex&quot;</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="at">tVal =</span> <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;F&quot;</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>)</span></code></pre></div>
 <p>Turtle’s breed is a turtle variable and you can have different breeds
 behaving differently. For example, you could have breeds called
 <code>sheep</code> and <code>wolf</code>, and have the wolves trying to
@@ -504,21 +503,21 @@ eat the sheep. You can either specify different breeds in the same
 turtle object or create two objects, one sheep and one wolf.</p>
 <p>You define turtles’ breed by filling the breed column when creating
 the turtles.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 sheep and 5 wolves</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="fu">createTurtles</span>(<span class="at">world =</span> w1, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">breed =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;sheep&quot;</span>, <span class="dv">5</span>), <span class="fu">rep</span>(<span class="st">&quot;wolf&quot;</span>, <span class="dv">5</span>)))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sheep <span class="ot">&lt;-</span> <span class="fu">createTurtles</span>(<span class="at">world =</span> w1, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">breed =</span> <span class="st">&quot;sheep&quot;</span>) <span class="co"># 5 sheep</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>wolves <span class="ot">&lt;-</span> <span class="fu">createTurtles</span>(<span class="at">world =</span> w1, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">breed =</span> <span class="st">&quot;wolf&quot;</span>) <span class="co"># 5 wolves</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># 5 sheep and 5 wolves</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="fu">createTurtles</span>(<span class="at">world =</span> w1, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">breed =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;sheep&quot;</span>, <span class="dv">5</span>), <span class="fu">rep</span>(<span class="st">&quot;wolf&quot;</span>, <span class="dv">5</span>)))</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co"># Or</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>sheep <span class="ot">&lt;-</span> <span class="fu">createTurtles</span>(<span class="at">world =</span> w1, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">breed =</span> <span class="st">&quot;sheep&quot;</span>) <span class="co"># 5 sheep</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>wolves <span class="ot">&lt;-</span> <span class="fu">createTurtles</span>(<span class="at">world =</span> w1, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">breed =</span> <span class="st">&quot;wolf&quot;</span>) <span class="co"># 5 wolves</span></span></code></pre></div>
 <p>Or you can modify the turtles’ breed after creation.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Turtle 0 which was &quot;sheep&quot; becomes &quot;wolf&quot;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="fu">NLset</span>(<span class="at">turtles =</span> t2, <span class="at">agents =</span> <span class="fu">turtle</span>(t2, <span class="at">who =</span> <span class="dv">0</span>), <span class="at">var =</span> <span class="st">&quot;breed&quot;</span>, <span class="at">val =</span> <span class="st">&quot;wolf&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Turtle 0 which was &quot;sheep&quot; becomes &quot;wolf&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>t2 <span class="ot">&lt;-</span> <span class="fu">NLset</span>(<span class="at">turtles =</span> t2, <span class="at">agents =</span> <span class="fu">turtle</span>(t2, <span class="at">who =</span> <span class="dv">0</span>), <span class="at">var =</span> <span class="st">&quot;breed&quot;</span>, <span class="at">val =</span> <span class="st">&quot;wolf&quot;</span>)</span></code></pre></div>
 <p>Global variables are available for all agents. Patch and turtle
 variables are available to other agents if they can be identified by
 their coordinates or some other variables.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reports the pQuality value of the patches:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [pxcor = 0, pycor = 0], [pxcor = 0, pycor = 1], and [pxcor = 0, pycor = 2]</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">of</span>(<span class="at">world =</span> pQuality, <span class="at">agents =</span> <span class="fu">patch</span>(pQuality, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Reports the pQuality value of the patches:</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co"># [pxcor = 0, pycor = 0], [pxcor = 0, pycor = 1], and [pxcor = 0, pycor = 2]</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">of</span>(<span class="at">world =</span> pQuality, <span class="at">agents =</span> <span class="fu">patch</span>(pQuality, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>)))</span></code></pre></div>
 <p>Local variables may occur in <code>NetLogoR</code> as inherent to the
 R software. For example, variables only defined inside functions are
 local variables and therefore cannot be accessed outside of the
@@ -622,7 +621,7 @@ using <code>NetLogoR</code></h1>
 <p>The following steps describe how to build a basic NetLogo-type model
 in R using <code>NetLogoR</code>. Examples of R scripts are available in
 the “examples” folder, which can be found using:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.file</span>(<span class="st">&quot;examples&quot;</span>, <span class="at">package =</span> <span class="st">&quot;NetLogoR&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">system.file</span>(<span class="st">&quot;examples&quot;</span>, <span class="at">package =</span> <span class="st">&quot;NetLogoR&quot;</span>)</span></code></pre></div>
 <ul>
 <li><p>Open a new R script (using RStudio or an adapted text editor like
 Tinn-R) to write the code of the model in it. Save it under the name of

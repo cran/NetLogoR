@@ -19,7 +19,9 @@ turtlesOwn(turtles, tVar, tVal)
 
 \item{tVal}{Vector representing the values of \code{tVar}.
 Must be of length 1 or of length \code{turtles}.
-If missing, \code{NA} is given.}
+If missing, \code{NA} is given.
+If missing or if \code{NA} is given, the column will be \code{numeric}.
+To be a \code{character} column, \code{"NA"} must be given.}
 }
 \value{
 \code{AgentMatrix} representing the \code{turtles} with the new
@@ -34,12 +36,12 @@ t1 <- turtlesOwn(turtles = t1, tVar = "sex", tVal = c("F", "F", "F", "M", "M"))
 
 }
 \references{
-Wilensky, U. 1999. NetLogo. http://ccl.northwestern.edu/netlogo/.
+Wilensky, U. 1999. NetLogo. https://www.netlogo.org.
 Center for Connected Learning and Computer-Based Modeling,
 Northwestern University. Evanston, IL.
 }
 \seealso{
-\url{https://ccl.northwestern.edu/netlogo/docs/dictionary.html#turtles-own}
+\url{https://docs.netlogo.org/dictionary.html#turtles-own}
 }
 \author{
 Sarah Bauduin
